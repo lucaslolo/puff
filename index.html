@@ -3,66 +3,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PUFF :: Accueil</title>
-    <link rel="stylesheet" href="css/index.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>PUFF :: Accueil</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-    <div id="loader">
-        <div class="spinner"></div>
-        <p>Chargement...</p>
+  <div id="loader" role="alert" aria-live="assertive">
+    <div class="spinner"></div>
+    <p>Chargement...</p>
+  </div>
+
+  <header id="headerPrincipal" role="banner">
+    <div class="container">
+      <h1 class="logo">PUFF</h1>
+      <button id="toggleTheme" aria-label="Changer le thème">🌙</button>
     </div>
+  </header>
 
-    <header id="headerPrincipal">
-        <div class="container">
-            <h1 class="logo">PUFF</h1>
-            <button id="toggleTheme">🌙</button>
-        </div>
-    </header>
+  <main role="main">
+    <section class="description fade-in">
+      <h2>Bienvenue sur la plateforme de vente de PUFF</h2>
+      <p>
+        PUFF est une plateforme en ligne dédiée à titre informatif.<br /><br />
+        Les 4 goûts sont : <strong>Watermelon</strong>, <strong>BlueBerry</strong>, <strong>Menthe</strong> et
+        <strong>Fraise</strong>.
+      </p>
+    </section>
 
-    <main>
-        <section class="description fade-in">
-            <h2>Bienvenue sur la plateforme de vente de PUFF</h2>
-            <p>
-                PUFF est une plateforme en ligne dédiée à titre informatif.<br><br>
-                Les 4 goûts sont : <strong>Watermelon</strong>, <strong>BlueBerry</strong>, <strong>Menthe</strong> et <strong>Fraise</strong>.
-            </p>
-        </section>
+    <section class="vente fade-in">
+      <h2>En vente en ce moment :</h2>
+      <div class="grid-nfts">
+        <article class="nft-item">
+          <img src="img/base.jpg" alt="Watermelon" />
+          <a href="objet1.html"><h3>Watermelon</h3></a>
+          <p class="price">20$</p>
+        </article>
+        <article class="nft-item">
+          <img src="img/base.jpg" alt="BlueBerry" />
+          <a href="objet2.html"><h3>BlueBerry</h3></a>
+          <p class="price">20$</p>
+        </article>
+        <article class="nft-item">
+          <img src="img/base.jpg" alt="Menthe" />
+          <a href="objet3.html"><h3>Menthe</h3></a>
+          <p class="price">20$</p>
+        </article>
+        <article class="nft-item">
+          <img src="img/base.jpg" alt="Fraise" />
+          <a href="objet4.html"><h3>Fraise</h3></a>
+          <p class="price">20$</p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-        <section class="vente fade-in">
-            <h2>En vente en ce moment :</h2>
-            <div class="grid-nfts">
-                <article class="nft-item">
-                    <img src="img/base.jpg" alt="Watermelon" />
-                    <a href="objet1.html"><h3>Watermelon</h3></a>
-                    <p class="price">20$</p>
-                </article>
-                <article class="nft-item">
-                    <img src="img/base.jpg" alt="BlueBerry" />
-                    <a href="objet2.html"><h3>BlueBerry</h3></a>
-                    <p class="price">20$</p>
-                </article>
-                <article class="nft-item">
-                    <img src="img/base.jpg" alt="Menthe" />
-                    <a href="objet3.html"><h3>Menthe</h3></a>
-                    <p class="price">20$</p>
-                </article>
-                <article class="nft-item">
-                    <img src="img/base.jpg" alt="Fraise" />
-                    <a href="objet4.html"><h3>Fraise</h3></a>
-                    <p class="price">20$</p>
-                </article>
-            </div>
-        </section>
-    </main>
+  <footer id="footerPrincipal" role="contentinfo">
+    <p>© 2025 PUFF. Tous droits réservés.</p>
+  </footer>
 
-    <footer id="footerPrincipal">
-        <p>© 2025 PUFF. Tous droits réservés.</p>
-    </footer>
-
-    <script src="js/script.js"></script>
+  <script src="js/script.js"></script>
 </body>
 </html>
