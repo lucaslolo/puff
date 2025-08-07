@@ -175,3 +175,14 @@ footer#footerPrincipal {
     padding: 3rem 2rem;
   }
 }
+
+.nft-item.coming-soon {
+  opacity: 0.4; /* rend l'article plus discret */
+  filter: grayscale(100%); /* optionnel : image en noir et blanc */
+  pointer-events: none; /* désactive le clic */
+}
+
+.nft-item.coming-soon h3,
+.nft-item.coming-soon p {
+  text-decoration: line-through; /* style pour indiquer l'indisponibilité */
+}
