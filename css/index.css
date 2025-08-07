@@ -1,177 +1,143 @@
-/* Reset basique */
+/* Reset & base */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
+body {
   font-family: 'Inter', sans-serif;
   background-color: #121212;
   color: #eee;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.5;
-}
-
-#loader {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: #121212;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.spinner {
-  width: 50px;
-  height: 50px;
-  border: 6px solid #444;
-  border-top-color: #1de9b6;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin-bottom: 15px;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 1rem;
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 1rem 1.25rem;
+}
+
+header#headerPrincipal {
+  background-color: #1f1f1f;
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-header#headerPrincipal {
-  background-color: #1a1a1a;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.7);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
 .logo {
-  font-weight: 700;
-  font-size: 1.75rem;
-  color: #1de9b6;
+  font-size: 2rem;
+  color: #f1c40f;
   user-select: none;
 }
 
 #toggleTheme {
-  background: transparent;
-  border: none;
   font-size: 1.5rem;
-  cursor: pointer;
+  background: none;
+  border: none;
   color: #eee;
+  cursor: pointer;
   transition: color 0.3s ease;
 }
 
 #toggleTheme:hover {
-  color: #1de9b6;
+  color: #f1c40f;
 }
 
-main {
-  padding: 2rem 1.25rem;
-  max-width: 960px;
-  margin: 0 auto;
+main h2 {
+  margin-bottom: 1rem;
 }
 
-.description h2, .vente h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-  color: #1de9b6;
-}
-
-.description p {
-  font-weight: 400;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #ccc;
+.description, .vente {
+  margin-bottom: 2rem;
 }
 
 .grid-nfts {
   display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
 }
 
 .nft-item {
-  background: #222;
+  background-color: #222;
+  border-radius: 8px;
   padding: 1rem;
-  border-radius: 10px;
-  box-shadow: 0 0 8px #1de9b6aa;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 10px #f1c40faa;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  user-select: none;
 }
 
 .nft-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px #1de9b6cc;
+  box-shadow: 0 0 20px #f1c40fcc;
 }
 
 .nft-item img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
   user-select: none;
-  pointer-events: none;
 }
 
 .nft-item h3 {
-  color: #eee;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  font-size: 1.25rem;
+  margin-bottom: 0.3rem;
+  color: #f1c40f;
 }
 
-.price {
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #1de9b6;
+.nft-item .price {
+  font-weight: bold;
+  color: #eee;
 }
 
 footer#footerPrincipal {
   text-align: center;
-  padding: 1.5rem 1rem;
-  font-size: 0.9rem;
-  color: #666;
-  border-top: 1px solid #333;
   margin-top: 3rem;
+  padding: 1rem 0;
+  color: #888;
+  border-top: 1px solid #333;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  user-select: none;
 }
 
-/* Fade in simple */
-.fade-in {
-  animation: fadeIn 1.2s ease forwards;
-  opacity: 0;
+/* --- Mode clair --- */
+
+body.light-theme {
+  background-color: #fff;
+  color: #222;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+body.light-theme header#headerPrincipal {
+  background-color: #f5f5f5;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Responsive pour tablettes et desktop */
-@media (min-width: 600px) {
-  .grid-nfts {
-    grid-template-columns: repeat(2, 1fr);
-  }
+body.light-theme .container .logo {
+  color: #1a73e8;
 }
 
-@media (min-width: 900px) {
-  .grid-nfts {
-    grid-template-columns: repeat(4, 1fr);
-  }
+body.light-theme #toggleTheme {
+  color: #222;
+}
 
-  main {
-    padding: 3rem 2rem;
-  }
+body.light-theme main {
+  color: #333;
+}
+
+body.light-theme .nft-item {
+  background: #fafafa;
+  box-shadow: 0 0 8px #1a73e8aa;
+}
+
+body.light-theme .nft-item:hover {
+  box-shadow: 0 0 15px #1a73e8cc;
+}
+
+body.light-theme footer#footerPrincipal {
+  color: #999;
+  border-top: 1px solid #ddd;
 }
