@@ -13,6 +13,7 @@ body {
   color: #eee;
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -40,7 +41,7 @@ a:hover {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .spinner {
@@ -65,7 +66,10 @@ header {
   background-color: #1f1f1f;
   padding: 20px 0;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 .logo {
@@ -86,176 +90,149 @@ section {
   animation: fadeIn 1s forwards;
 }
 
-.description p, .vente p {
+.description p,
+.vente p {
   margin-top: 10px;
+  line-height: 1.6;
 }
 
 /* ===========================
    Grid / Items
 =========================== */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 40px 0;
+}
+
+
 .grid-nfts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
   gap: 20px;
-  margin-top: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+  max-width: 80%; /* ajuste la largeur du carrousel */
 }
 
 .nft-item {
-  background-color: #1b1b1b;
-  border: 1px solid #333;
+  flex: 0 0 auto; /* chaque NFT garde sa taille */
+  width: 180px;
+  background-color: #fff; /* fond clair pour voir le contenu */
   border-radius: 12px;
-  overflow: hidden;
-  padding: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
-.nft-item.watermelon {
-  background: linear-gradient(135deg, #ff3b3f, #ff7f50); /* Rouge vif avec un peu de rose pour la pastèque */
-  border: 1px solid #ff1a1a;
-}
-
-.nft-item.blueberry {
-  background: linear-gradient(135deg, #4f2fff, #7f66ff); /* Bleu vif typique de la myrtille */
-  border: 1px solid #3300cc;
-}
-
-.nft-item.triple-melon {
-  background: linear-gradient(135deg, #33ff66, #66ff99); /* Vert vif pour melon/honeydew */
-  border: 1px solid #1aff33;
-}
-
-.nft-item.raspberry {
-  background: linear-gradient(135deg, #ff0033, #ff3366); /* Rouge framboise vif */
-  border: 1px solid #cc001a;
-}
-
-.nft-item.black-berry {
-  background: linear-gradient(135deg, #330066, #660099); /* Violet/noir intense pour mûre */
-  border: 1px solid #1a0033;
-}
-
 
 .nft-item img {
   width: 100%;
   border-radius: 8px;
-  transition: transform 0.3s ease;
 }
 
-/* Hover effect with glowing shadow */
+
+
+
 .nft-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.6), 0 0 15px rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(255, 77, 109, 0.5), 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 .nft-item img:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
-/* Text for better contrast */
 .nft-item h3, .nft-item h4 {
   margin-top: 10px;
-  color: #ffffff;
+  color: #fff;
   font-size: 1.2rem;
   text-align: center;
 }
 
 
-.stock {
-  color: black;
-  margin-top: 5px;
-  font-size: 0.9rem;
-  text-align: right;
+.left-arrow,
+.right-arrow {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+/* ===========================
+   Colored NFT Items
+=========================== */
+.nft-item.watermelon {
+  background: linear-gradient(135deg, #ff3b3f, #ff7f50);
+  border: 1px solid #ff1a1a;
+}
+
+.nft-item.blueberry {
+  background: linear-gradient(135deg, #4f2fff, #7f66ff);
+  border: 1px solid #3300cc;
+}
+
+.nft-item.triple-melon {
+  background: linear-gradient(135deg, #33ff66, #66ff99);
+  border: 1px solid #1aff33;
+}
+
+.nft-item.raspberry {
+  background: linear-gradient(135deg, #ff0033, #ff3366);
+  border: 1px solid #cc001a;
+}
+
+.nft-item.black-berry {
+  background: linear-gradient(135deg, #330066, #660099);
+  border: 1px solid #1a0033;
 }
 
 /* ===========================
-   Bloc Prix
+   Price Section
 =========================== */
 .prix {
   margin: 50px auto;
-  padding: 20px;
+  padding: 30px 20px;
   text-align: center;
-  background: #1a1a1a; /* fond sombre */
+  background: #1a1a1a;
   border-radius: 15px;
   color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .prix h2 {
   margin-bottom: 30px;
   font-size: 2em;
-  color: #ff4d6d; /* accent rouge/rose */
+  color: #ff4d6d;
 }
 
 .prix-grid {
   display: flex;
-  flex-wrap: wrap; /* permet aux items de passer à la ligne suivante */
-  gap: 10px;       /* espace entre les produits */
+  flex-wrap: wrap;
+  gap: 15px;
   justify-content: center;
 }
 
 .prix-item {
-  position: relative;       /* nécessaire pour positionner le badge */
+  position: relative;
   flex: 1 1 48%;
   max-width: 48%;
   background: linear-gradient(135deg, #333, #555);
   border: 2px solid #ff4d6d;
   border-radius: 15px;
   padding: 20px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  color: white;
+  color: #fff;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 1 PUFF */
-.prix-item:nth-child(1) {
-  background: linear-gradient(135deg, #ff3b3f 0%, #ff7f50 100%); /* Watermelon */
-  border: 2px solid #ff1a1a;
+.prix-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.5);
 }
 
-/* 2 PUFF */
-.prix-item:nth-child(2) {
-  background: linear-gradient(135deg, #ff3b3f 0%, #ff7f50 50%, #4f2fff 50%, #7f66ff 100%); /* Watermelon + Blueberry */
-  border: 2px solid #3300cc;
-}
-
-/* 3 PUFF */
-.prix-item:nth-child(3) {
-  background: linear-gradient(
-    135deg, 
-    #ff3b3f 0%, #ff7f50 33%, 
-    #4f2fff 33%, #7f66ff 66%, 
-    #ff0033 66%, #ff3366 100%
-  ); /* Watermelon + Blueberry + Raspberry */
-  border: 2px solid #cc001a;
-}
-
-/* 4 PUFF */
-.prix-item:nth-child(4) {
-  background: linear-gradient(
-    135deg, 
-    #ff3b3f 0%, #ff7f50 25%, 
-    #4f2fff 25%, #7f66ff 50%, 
-    #ff0033 50%, #ff3366 75%, 
-    #330066 75%, #660099 100%
-  ); /* Watermelon + Blueberry + Raspberry + Black Berry */
-  border: 2px solid #1a0033;
-}
-
-/* 5 PUFF - Best deal */
-.prix-item:nth-child(5) {
-  background: linear-gradient(
-    135deg, 
-    #ff3b3f 0%, #ff7f50 20%, 
-    #4f2fff 20%, #7f66ff 40%, 
-    #ff0033 40%, #ff3366 60%, 
-    #330066 60%, #660099 80%, 
-    #33ff66 80%, #66ff99 100%
-  ); /* All 5 colors */
-  border: 2px solid #1aff33;
-  font-weight: bold;
-}
-
-/* Badge commun */
 .badge {
   position: absolute;
   top: -10px;
@@ -269,104 +246,30 @@ section {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
-.prix-item h3 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.prix-item p {
-  font-size: 1.3em;
-  font-weight: bold;
-  color: #ffcc00; /* couleur or pour le prix */
-}
-
-.prix-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255, 77, 109, 0.5), 0 0 15px rgba(255, 204, 0, 0.4);
-}
-
-
-/* Bouton en bas de page */
-.order-bottom {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.btn-order-bottom {
-  background: linear-gradient(90deg, #ff6b6b, #f94d6a);
-  color: #fff;
-  font-weight: 700;
-  padding: 15px 30px;
-  border-radius: 50px;
-  text-decoration: none;
-  font-size: 18px;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.btn-order-bottom:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-
-/* ===========================
-   Responsive
-=========================== */
-@media (max-width: 1024px) {
-  .prix-grid {
-    flex-wrap: wrap; /* permet le passage à la ligne sur écrans moyens */
-  }
-
-  .prix-item {
-    flex: 1 1 45%; /* deux par ligne si espace réduit */
-    max-width: 45%;
-  }
-}
-
+/* Responsive tweaks */
 @media (max-width: 768px) {
-  .prix-grid {
-    flex-wrap: wrap;
-  }
-
   .prix-item {
-    flex: 1 1 48%; /* correction : deux par ligne sur mobile */
-    max-width: 48%;
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .grid-nfts {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-/* ===========================
-   Footer
-=========================== */
-footer {
-  background-color: #1f1f1f;
-  padding: 20px 0;
-  text-align: center;
-  color: #666;
-  border-top: 1px solid #333;
+@media (max-width: 480px) {
+  .grid-nfts {
+    grid-template-columns: 1fr;
+  }
+  .logo {
+    font-size: 1.5rem;
+  }
 }
 
-/* ===========================
-   Animations
-=========================== */
+
 @keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeInDown {
-  0% { opacity: 0; transform: translateY(-20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Fade-in delay for multiple sections */
-.fade-in {
-  animation: fadeIn 1s forwards;
-}
-
-/* Meilleure vente - framboise */
-.best-seller {
-  background: linear-gradient(135deg, #ff0033, #ff3366);
-  border: 2px solid #cc001a;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
