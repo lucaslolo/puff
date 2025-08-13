@@ -152,12 +152,13 @@ section {
 }
 
 /* Text for better contrast */
-.nft-item h3 {
+.nft-item h3, .nft-item h4 {
   margin-top: 10px;
   color: #ffffff;
   font-size: 1.2rem;
   text-align: center;
 }
+
 
 .stock {
   color: black;
