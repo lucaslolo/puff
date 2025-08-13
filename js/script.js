@@ -8,7 +8,7 @@ window.addEventListener("load", () => {
 const leftArrow = document.querySelector(".left-arrow");
 const rightArrow = document.querySelector(".right-arrow");
 const nftGrid = document.querySelector(".grid-nfts");
-const scrollAmount = 220;
+const scrollAmount = 420;
 
 leftArrow.addEventListener("click", () => {
   nftGrid.scrollBy({ left: -scrollAmount, behavior: "smooth" });
