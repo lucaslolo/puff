@@ -110,24 +110,30 @@ section {
 }
 
 .nft-item.watermelon {
-  background: linear-gradient(135deg, #ff4d6d, #ff80a0);
-  border: 1px solid #ff3366;
+  background: linear-gradient(135deg, #ff3b3f, #ff7f50); /* Rouge vif avec un peu de rose pour la pastèque */
+  border: 1px solid #ff1a1a;
 }
 
 .nft-item.blueberry {
-  background: linear-gradient(135deg, #4d79ff, #8099ff);
-  border: 1px solid #3366ff;
+  background: linear-gradient(135deg, #4f2fff, #7f66ff); /* Bleu vif typique de la myrtille */
+  border: 1px solid #3300cc;
 }
 
-.nft-item.menthe {
-  background: linear-gradient(135deg, #33ff99, #66ffb3);
-  border: 1px solid #1aff80;
+.nft-item.triple-melon {
+  background: linear-gradient(135deg, #33ff66, #66ff99); /* Vert vif pour melon/honeydew */
+  border: 1px solid #1aff33;
 }
 
-.nft-item.fraise {
-  background: linear-gradient(135deg, #ff1a1a, #ff4d4d);
-  border: 1px solid #e60000;
+.nft-item.raspberry {
+  background: linear-gradient(135deg, #ff0033, #ff3366); /* Rouge framboise vif */
+  border: 1px solid #cc001a;
 }
+
+.nft-item.black-berry {
+  background: linear-gradient(135deg, #330066, #660099); /* Violet/noir intense pour mûre */
+  border: 1px solid #1a0033;
+}
+
 
 .nft-item img {
   width: 100%;
