@@ -99,14 +99,21 @@ section {
 /* ===========================
    Grid / Items
 =========================== */
+
 .carousel-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 40px 0;
+  position: relative;
+  width: 300px; /* largeur du carousel */
+  margin: 0 auto;
+  text-align: center;
 }
 
+
+.carousel-wrapper {
+  position: relative;
+  width: 300px; /* largeur du carrousel */
+  margin: 0 auto;
+  overflow: hidden;
+}
 
 .grid-nfts {
   display: flex;
@@ -118,8 +125,8 @@ section {
 }
 
 .nft-item {
-  flex: 0 0 auto; /* chaque NFT garde sa taille */
-  width: 180px;
+  min-width: 100%; /* un seul produit visible */
+  box-sizing: border-box;
   background-color: #fff; /* fond clair pour voir le contenu */
   border-radius: 12px;
   padding: 10px;
@@ -149,15 +156,21 @@ section {
   text-align: center;
 }
 
-
-.left-arrow,
-.right-arrow {
-  font-size: 1.8rem;
-  background: none;
+.left-arrow, .right-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #fff;
   border: none;
+  font-size: 2rem;
   cursor: pointer;
-  user-select: none;
+  z-index: 10;
 }
+
+.left-arrow { left: -40px; }
+.right-arrow { right: -40px; }
+
+
 /* ===========================
    Colored NFT Items
 =========================== */

@@ -5,19 +5,35 @@ window.addEventListener("load", () => {
   setTimeout(() => loader.style.display = "none", 500);
 
   // Carousel NFT
-const leftArrow = document.querySelector(".left-arrow");
-const rightArrow = document.querySelector(".right-arrow");
-const nftGrid = document.querySelector(".grid-nfts");
-const scrollAmount = 420;
+const items = document.querySelectorAll('.carousel-item');
+const leftArrow = document.querySelector('.left-arrow');
+const rightArrow = document.querySelector('.right-arrow');
 
-leftArrow.addEventListener("click", () => {
-  nftGrid.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+let currentIndex = 0;
+
+function showItem(index) {
+  items.forEach((item, i) => {
+    item.classList.toggle('active', i === index);
+  });
+}
+
+leftArrow.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + items.length) % items.length;
+  showItem(currentIndex);
 });
 
-rightArrow.addEventListener("click", () => {
-  nftGrid.scrollBy({ left: scrollAmount, behavior: "smooth" });
+rightArrow.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % items.length;
+  showItem(currentIndex);
 });
+
+// Initial display
+showItem(currentIndex);
 });
+
+
+
+
 
 
 
