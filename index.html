@@ -1,105 +1,87 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PUFF</title>
-  <link rel="stylesheet" href="css/index.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  
   <!-- Loader -->
-  <div id="loader" role="alert" aria-live="assertive">
+  <div id="loader">
     <div class="spinner"></div>
-    <p>Chargement...</p>
+    <p>Loading...</p>
   </div>
 
   <!-- Header -->
-  <header id="headerPrincipal" role="banner">
-    <div class="container">
-      <h1 class="logo">PUFF</h1>
-    </div>
+  <header>
+    <div class="logo">PUFF</div>
   </header>
 
-  <!-- Main content -->
-  <main role="main">
-    <!-- Description -->
-    <section class="description fade-in">
-      <h2>Bienvenue sur la plateforme de vente de PUFF</h2>
-      <p>
-        PUFF est une plateforme en ligne dédiée à titre informatif.<br /><br />
-        Les 4 goûts sont : <strong>Watermelon</strong>, <strong>BlueBerry</strong>, <strong>Menthe</strong> et <strong>Fraise</strong>.<br />
-        Elle est rechargeable (autonomie en heure) 30 000 coups. Livraison gratuite à l'achat de 3 puff ou plus.<br />
-        Snap: @chopetapuff30k
-      </p>
-    </section>
+  <!-- Description Section -->
+  <section class="description fade-in">
+    <h2>Bienvenue dans notre shop PUFF 30k</h2>
+    <p>Découvrez nos puff avec nos differentes saveurs d ete. Pour commander adressez vous a @shoptapuff30k sur snap</p>
+  </section>
 
-    <section class="prix fade-in">
-      <h2>Nos tarifs :</h2>
-      <div class="prix-grid">
-        <div class="prix-item">
-          <h3>1 PUFF</h3>
-          <p>20 €</p>
-        </div>
-        <div class="prix-item">
-          <h3>2 PUFF</h3>
-          <p>38 €</p>
-        </div>
-        <div class="prix-item">
-          <h3>5 PUFF</h3>
-          <p>90 €</p>
-        </div>
+  <!-- NFT Grid Section -->
+  <section class="grid-nfts fade-in">
+    <div class="nft-item watermelon">
+      <img src="img/base.jpg" alt="Watermelon">
+      <h3>Watermelon</h3>
+      <p class="stock">Stock: 12</p>
+    </div>
+    <div class="nft-item blueberry">
+      <img src="img/base.jpg" alt="Blueberry">
+      <h3>Blueberry</h3>
+      <p class="stock">Stock: 8</p>
+    </div>
+    <div class="nft-item menthe">
+      <img src="img/base.jpg" alt="Menthe">
+      <h3>Menthe</h3>
+      <p class="stock">Stock: 15</p>
+    </div>
+    <div class="nft-item fraise">
+      <img src="img/base.jpg" alt="Fraise">
+      <h3>Fraise</h3>
+      <p class="stock">Stock: 5</p>
+    </div>
+  </section>
+
+  <!-- Price Section -->
+  <section class="prix fade-in">
+    <h2>Nos Prix</h2>
+    <div class="prix-grid">
+      <div class="prix-item">
+        <h3>1 PUFF </h3>
+        <p>20 $</p>
       </div>
-    </section>
-
-    <!-- Vente -->
-    <section class="vente fade-in">
-      <h2>En vente en ce moment :</h2>
-      <div class="grid-nfts">
-
-        <!-- Watermelon -->
-        <article class="nft-item watermelon">
-          <img src="img/base.jpg" alt="Puff goût Watermelon" loading="lazy" />
-          <a href="objet1.html">Watermelon</a>
-          <p class="stock">Quantité: 12</p>
-        </article>
-
-        <!-- BlueBerry -->
-        <article class="nft-item blueberry">
-          <img src="img/base.jpg" alt="Puff goût BlueBerry" loading="lazy" />
-          <a href="objet2.html">BlueBerry</a>
-          <p class="stock">Quantité: 8</p>
-        </article>
-
-        <!-- Menthe -->
-        <article class="nft-item menthe">
-          <img src="img/base.jpg" alt="Puff goût Menthe" loading="lazy" />
-          <a href="objet3.html">Menthe</a>
-          <p class="stock">Quantité: 15</p>
-        </article>
-
-        <!-- Fraise -->
-        <article class="nft-item fraise">
-          <img src="img/base.jpg" alt="Puff goût Fraise" loading="lazy" />
-          <a href="objet4.html">Fraise</a>
-          <p class="stock">Quantité: 10</p>
-        </article>
-
-        <!-- Coming Soon -->
-        <article class="nft-item coming-soon">
-          <img src="img/base.jpg" alt="Nouveau goût à venir" />
-          <h3>Coming Soon</h3>
-        </article>
-
+      <div class="prix-item">
+        <h3>2 PUFF</h3>
+        <p>38 $</p>
       </div>
-    </section>
-  </main>
+      <div class="prix-item">
+        <h3>5 PUFF</h3>
+        <p>90 $</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer id="footerPrincipal" role="contentinfo">
-    <p>© 2025 PUFF. Tous droits réservés.</p>
+  <footer>
+    &copy; 2025 NFT Gallery. Tous droits réservés.
   </footer>
 
-  <script src="js/script.js"></script>
+  <script>
+    // Loader
+    window.addEventListener("load", function() {
+      const loader = document.getElementById("loader");
+      loader.style.opacity = "0";
+      setTimeout(() => loader.style.display = "none", 500);
+    });
+  </script>
+
 </body>
 </html>

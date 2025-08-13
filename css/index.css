@@ -90,7 +90,6 @@ section {
   margin-top: 10px;
 }
 
-
 /* ===========================
    Grid / Items
 =========================== */
@@ -111,32 +110,30 @@ section {
 }
 
 .nft-item.watermelon {
-  background: linear-gradient(135deg, #ff4d6d, #ff80a0); /* rouge-rose vif */
+  background: linear-gradient(135deg, #ff4d6d, #ff80a0);
   border: 1px solid #ff3366;
 }
 
 .nft-item.blueberry {
-  background: linear-gradient(135deg, #4d79ff, #8099ff); /* bleu vif */
+  background: linear-gradient(135deg, #4d79ff, #8099ff);
   border: 1px solid #3366ff;
 }
 
 .nft-item.menthe {
-  background: linear-gradient(135deg, #33ff99, #66ffb3); /* vert menthe vif */
+  background: linear-gradient(135deg, #33ff99, #66ffb3);
   border: 1px solid #1aff80;
 }
 
 .nft-item.fraise {
-  background: linear-gradient(135deg, #ff1a1a, #ff4d4d); /* rouge vif */
+  background: linear-gradient(135deg, #ff1a1a, #ff4d4d);
   border: 1px solid #e60000;
 }
-
 
 .nft-item img {
   width: 100%;
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
-
 
 /* Hover effect with glowing shadow */
 .nft-item:hover {
@@ -151,11 +148,11 @@ section {
 /* Text for better contrast */
 .nft-item h3 {
   margin-top: 10px;
-  color: #ffffff; /* texte blanc pour contraste */
+  color: #ffffff;
 }
 
 .stock {
-  color: black; /* texte plus lumineux */
+  color: black;
   margin-top: 5px;
   font-size: 0.9rem;
 }
@@ -167,7 +164,7 @@ section {
   margin: 50px auto;
   padding: 20px;
   text-align: center;
-  background: #1a1a1a; /* fond sombre */
+  background: #1a1a1a;
   border-radius: 15px;
   color: #fff;
 }
@@ -175,7 +172,7 @@ section {
 .prix h2 {
   margin-bottom: 30px;
   font-size: 2em;
-  color: #ff4d6d; /* accent rouge/rose */
+  color: #ff4d6d;
 }
 
 .prix-grid {
@@ -201,17 +198,13 @@ section {
 .prix-item p {
   font-size: 1.3em;
   font-weight: bold;
-  color: #ffcc00; /* couleur or pour le prix */
+  color: #ffcc00;
 }
 
 .prix-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(255, 77, 109, 0.5), 0 0 15px rgba(255, 204, 0, 0.4);
 }
-
-
-
-
 
 /* ===========================
    Footer
