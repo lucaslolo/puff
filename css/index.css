@@ -1,65 +1,51 @@
-/* =============================
-   Reset & Global
-============================= */
+/* ===========================
+   Fonts & Reset
+=========================== */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(-45deg, #ff7eb3, #7afcff, #c77df0, #fffa65);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  color: #121212;
+  background-color: #121212;
+  color: #eee;
   line-height: 1.6;
-  transition: background 0.5s, color 0.5s;
+  overflow-x: hidden;
 }
 
-/* =============================
-   Background Animations
-============================= */
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+a {
+  color: #bb86fc;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-body.dark {
-  background: linear-gradient(-45deg, #2c2c54, #4834d4, #130f40, #00d2d3);
-  background-size: 400% 400%;
-  animation: gradientBGDark 15s ease infinite;
-  color: #f8f8f8;
+a:hover {
+  color: #ff79c6;
 }
 
-@keyframes gradientBGDark {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* =============================
+/* ===========================
    Loader
-============================= */
+=========================== */
 #loader {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.95);
+  background-color: #121212;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   z-index: 9999;
-  transition: opacity 0.5s;
+  transition: opacity 0.5s ease;
 }
 
-#loader .spinner {
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #ff7eb3;
+.spinner {
+  border: 4px solid #333;
+  border-top: 4px solid #bb86fc;
   border-radius: 50%;
   width: 50px;
   height: 50px;
@@ -72,130 +58,186 @@ body.dark {
   100% { transform: rotate(360deg); }
 }
 
-/* =============================
+/* ===========================
    Header
-============================= */
+=========================== */
 header {
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-header .container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header .logo {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-header button {
-  font-size: 1.2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* =============================
-   Main
-============================= */
-main {
-  width: 90%;
-  max-width: 1200px;
-  margin: 50px auto;
-}
-
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  background-color: #1f1f1f;
+  padding: 20px 0;
   text-align: center;
-  color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
 }
 
-section p {
-  font-size: 1rem;
-  text-align: center;
-  color: #fff;
+.logo {
+  font-size: 2rem;
+  color: #bb86fc;
+  animation: fadeInDown 1s ease;
 }
 
-.fade-in {
+/* ===========================
+   Sections
+=========================== */
+section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeIn 1s forwards;
-  animation-delay: 0.5s;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.description p, .vente p {
+  margin-top: 10px;
 }
 
-/* =============================
-   Grid & Products
-============================= */
+
+/* ===========================
+   Grid / Items
+=========================== */
 .grid-nfts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .nft-item {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 15px;
+  background-color: #1b1b1b;
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
   padding: 15px;
-  text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
-  backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nft-item:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.nft-item.watermelon {
+  background: linear-gradient(135deg, #ff4d6d, #ff80a0); /* rouge-rose vif */
+  border: 1px solid #ff3366;
 }
+
+.nft-item.blueberry {
+  background: linear-gradient(135deg, #4d79ff, #8099ff); /* bleu vif */
+  border: 1px solid #3366ff;
+}
+
+.nft-item.menthe {
+  background: linear-gradient(135deg, #33ff99, #66ffb3); /* vert menthe vif */
+  border: 1px solid #1aff80;
+}
+
+.nft-item.fraise {
+  background: linear-gradient(135deg, #ff1a1a, #ff4d4d); /* rouge vif */
+  border: 1px solid #e60000;
+}
+
 
 .nft-item img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+
+/* Hover effect with glowing shadow */
+.nft-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.6), 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.nft-item img:hover {
+  transform: scale(1.05);
+}
+
+/* Text for better contrast */
+.nft-item h3 {
+  margin-top: 10px;
+  color: #ffffff; /* texte blanc pour contraste */
+}
+
+.stock {
+  color: black; /* texte plus lumineux */
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+/* ===========================
+   Bloc Prix
+=========================== */
+.prix {
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
+  background: #1a1a1a; /* fond sombre */
+  border-radius: 15px;
+  color: #fff;
+}
+
+.prix h2 {
+  margin-bottom: 30px;
+  font-size: 2em;
+  color: #ff4d6d; /* accent rouge/rose */
+}
+
+.prix-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.prix-item {
+  background: linear-gradient(135deg, #333, #555);
+  border: 2px solid #ff4d6d;
+  border-radius: 15px;
+  padding: 20px 40px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.prix-item h3 {
+  font-size: 1.5em;
   margin-bottom: 10px;
 }
 
-.nft-item h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-  color: #fff;
+.prix-item p {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #ffcc00; /* couleur or pour le prix */
 }
 
-.price, .stock {
-  font-size: 1rem;
-  color: #fff;
+.prix-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 77, 109, 0.5), 0 0 15px rgba(255, 204, 0, 0.4);
 }
 
-.coming-soon h3 {
-  color: #ffd700;
-}
 
-/* =============================
+
+
+
+/* ===========================
    Footer
-============================= */
+=========================== */
 footer {
-  text-align: center;
+  background-color: #1f1f1f;
   padding: 20px 0;
-  margin-top: 50px;
-  background: rgba(0,0,0,0.2);
-  color: #fff;
-  backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(255,255,255,0.2);
+  text-align: center;
+  color: #666;
+  border-top: 1px solid #333;
+}
+
+/* ===========================
+   Animations
+=========================== */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-in delay for multiple sections */
+.fade-in {
+  animation: fadeIn 1s forwards;
 }
