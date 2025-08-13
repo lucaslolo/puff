@@ -164,7 +164,7 @@ section {
   margin: 50px auto;
   padding: 20px;
   text-align: center;
-  background: #1a1a1a;
+  background: #1a1a1a; /* fond sombre */
   border-radius: 15px;
   color: #fff;
 }
@@ -172,22 +172,25 @@ section {
 .prix h2 {
   margin-bottom: 30px;
   font-size: 2em;
-  color: #ff4d6d;
+  color: #ff4d6d; /* accent rouge/rose */
 }
 
 .prix-grid {
   display: flex;
+  flex-wrap: wrap; /* permet aux items de passer à la ligne suivante */
+  gap: 10px;       /* espace entre les produits */
   justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
 }
 
 .prix-item {
+  flex: 1 1 48%;           /* chaque item prend environ la moitié de la largeur */
+  max-width: 48%;           /* pour éviter qu’il dépasse */
   background: linear-gradient(135deg, #333, #555);
   border: 2px solid #ff4d6d;
   border-radius: 15px;
-  padding: 20px 40px;
-  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 10px;     /* espace en bas */
 }
 
 .prix-item h3 {
@@ -198,12 +201,37 @@ section {
 .prix-item p {
   font-size: 1.3em;
   font-weight: bold;
-  color: #ffcc00;
+  color: #ffcc00; /* couleur or pour le prix */
 }
 
 .prix-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(255, 77, 109, 0.5), 0 0 15px rgba(255, 204, 0, 0.4);
+}
+
+/* ===========================
+   Responsive
+=========================== */
+@media (max-width: 1024px) {
+  .prix-grid {
+    flex-wrap: wrap; /* permet le passage à la ligne sur écrans moyens */
+  }
+
+  .prix-item {
+    flex: 1 1 45%; /* deux par ligne si espace réduit */
+    max-width: 45%;
+  }
+}
+
+@media (max-width: 768px) {
+  .prix-grid {
+    flex-wrap: wrap;
+  }
+
+  .prix-item {
+    flex: 1 1 100%; /* une par ligne sur mobile */
+    max-width: 100%;
+  }
 }
 
 /* ===========================
