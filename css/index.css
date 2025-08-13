@@ -61,17 +61,46 @@ a:hover {
 /* ===========================
    Header
 =========================== */
-header {
-  background-color: #1f1f1f;
+.header {
+  background: black
   padding: 20px 0;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
 }
 
 .logo {
-  font-size: 2rem;
-  color: #bb86fc;
-  animation: fadeInDown 1s ease;
+  font-family: 'Arial', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: glowPulse 2s infinite alternate, floatText 3s ease-in-out infinite;
+  position: relative;
+}
+
+/* Glow + pulse effect */
+@keyframes glowPulse {
+  0% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff99cc, 0 0 20px #ff3366;
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 15px #fff, 0 0 30px #ff99cc, 0 0 50px #ff3366;
+    transform: scale(1.05);
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff99cc, 0 0 20px #ff3366;
+    transform: scale(1);
+  }
+}
+
+/* Subtle float animation */
+@keyframes floatText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
 /* ===========================
@@ -86,8 +115,45 @@ section {
   animation: fadeIn 1s forwards;
 }
 
-.description p, .vente p {
-  margin-top: 10px;
+.description {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #1a1a1a; /* fond sombre */
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.description h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff3366;
+}
+
+.description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.description strong {
+  color: #ff3366;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===========================
@@ -358,11 +424,6 @@ footer {
 @keyframes fadeInDown {
   0% { opacity: 0; transform: translateY(-20px); }
   100% { opacity: 1; transform: translateY(0); }
-}
-
-/* Fade-in delay for multiple sections */
-.fade-in {
-  animation: fadeIn 1s forwards;
 }
 
 /* Meilleure vente - framboise */
