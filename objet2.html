@@ -6,83 +6,155 @@
     <title>PUFF :: BlueBerry</title>
     <link rel="stylesheet" href="css/index.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Animation CSS rapide pour transitions de thème et loader -->
     <style>
-        /* Améliorations visuelles spécifiques */
-        .description {
+        /* Empêche le flash de thème au chargement */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background: var(--header-bg, #222);
+            padding: 15px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text, #fff);
+        }
+
+        #toggleTheme {
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        #toggleTheme:hover {
+            transform: scale(1.2);
+        }
+
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
             text-align: center;
-            animation: fadeIn 0.8s ease-in-out;
         }
 
         .description img {
             max-width: 300px;
             border-radius: 10px;
             margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .description img:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
         }
 
         .price {
             font-size: 1.5rem;
             margin-top: 20px;
-            color: var(--link);
             font-weight: bold;
         }
 
-        .btn-retour {
+        .btn-primary {
             display: inline-block;
             margin-top: 30px;
             padding: 10px 20px;
-            background-color: var(--link);
+            background-color: var(--link, #ff4d4d);
             color: #fff;
             border-radius: 5px;
             text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
 
-        .btn-retour:hover {
-            background-color: var(--link-hover, #0056b3);
+        .btn-primary:hover {
+            background-color: var(--link-hover, #e64444);
             transform: translateY(-2px);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9rem;
+            background: var(--footer-bg, #111);
+            color: var(--footer-text, #aaa);
+            margin-top: 40px;
+        }
+
+        /* Loader style (compatible avec ton JS existant) */
+        #loader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--loader-bg, #111);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .loader-spinner {
+            border: 6px solid rgba(255,255,255,0.2);
+            border-top: 6px solid #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <!-- Loader -->
-    <div id="loader" style="position: fixed; width: 100%; height: 100%; background: var(--bg); display: flex; align-items: center; justify-content: center; z-index: 9999;">
-        <div style="width: 40px; height: 40px; border: 4px solid var(--text); border-top: 4px solid transparent; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+    <div id="loader">
+        <div class="loader-spinner"></div>
     </div>
 
     <header id="headerPrincipal">
         <div class="container">
             <h1 class="logo">PUFF</h1>
-            <button id="toggleTheme">🌙</button>
+            <button id="toggleTheme" aria-pressed="true">🌙</button>
         </div>
     </header>
 
     <main>
         <section class="description">
             <h2>BlueBerry</h2>
-            <img src="img/base.jpg" alt="NFT BlueBerry">
+            <img src="img/base.jpg" alt="PUFF BlueBerry">
             <p>
-                La PUFF <strong>BlueBerry</strong> incarne la douceur d’un fruit mystérieux et captivant. 
+                La PUFF <strong>BlueBerry</strong> est une pièce numérique rafraîchissante et vibrante de la collection PUFF. 
                 <br><br>
-                C'est une PUFF parfaite pour les esprits créatifs et rêveurs. Ses nuances bleutées évoquent la sérénité et la confiance.
+                Inspirée par la fraîcheur de la myrtille, cette puff unique symbolise l’été, la détente et la légèreté. 
+                Elle est parfaite pour les collectionneurs qui aiment les saveurs fruitées et les visuels colorés.
                 <br><br>
-                Édition limitée à 100 exemplaires.
+                Édition limitée — seulement 100 exemplaires disponibles.
             </p>
 
             <p class="price">💸 Prix : <strong>20$</strong></p>
 
-            <a href="index.html" class="btn-retour">⬅ Retour à l'accueil</a>
+            <a href="index.html" class="btn-primary">Retour à l'accueil</a>
         </section>
     </main>
 
@@ -91,20 +163,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-    <script>
-        /* Animation loader */
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            loader.style.opacity = '0';
-            setTimeout(() => loader.style.display = 'none', 500);
-        });
-
-        /* Animation rotation loader */
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        `;
-        document.head.appendChild(style);
-    </script>
 </body>
 </html>
