@@ -212,14 +212,14 @@ section {
   border: 2px solid #ff1a1a;
 }
 
-/* 2 PUFF */
+/* 2 PUFF 
 .prix-item:nth-child(2) {
-  background: linear-gradient(135deg, #ff3b3f 0%, #ff7f50 50%, #4f2fff 50%, #7f66ff 100%); /* Watermelon + Blueberry */
+  background: linear-gradient(135deg, #ff3b3f 0%, #ff7f50 50%, #4f2fff 50%, #7f66ff 100%); /* Watermelon + Blueberry 
   border: 2px solid #3300cc;
-}
+}*/
 
 /* 3 PUFF */
-.prix-item:nth-child(3) {
+.prix-item:nth-child(2) {
   background: linear-gradient(
     135deg, 
     #ff3b3f 0%, #ff7f50 33%, 
@@ -229,7 +229,7 @@ section {
   border: 2px solid #cc001a;
 }
 
-/* 4 PUFF */
+/* 4 PUFF 
 .prix-item:nth-child(4) {
   background: linear-gradient(
     135deg, 
@@ -237,12 +237,12 @@ section {
     #4f2fff 25%, #7f66ff 50%, 
     #ff0033 50%, #ff3366 75%, 
     #330066 75%, #660099 100%
-  ); /* Watermelon + Blueberry + Raspberry + Black Berry */
+  ); /* Watermelon + Blueberry + Raspberry + Black Berry 
   border: 2px solid #1a0033;
-}
+}*/
 
 /* 5 PUFF - Best deal */
-.prix-item:nth-child(5) {
+.prix-item:nth-child(3) {
   background: linear-gradient(
     135deg, 
     #ff3b3f 0%, #ff7f50 20%, 
