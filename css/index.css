@@ -229,8 +229,8 @@ section {
   }
 
   .prix-item {
-    flex: 1 1 100%; /* une par ligne sur mobile */
-    max-width: 100%;
+    flex: 1 1 48%; /* correction : deux par ligne sur mobile */
+    max-width: 48%;
   }
 }
 
