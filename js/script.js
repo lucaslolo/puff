@@ -1,31 +1,45 @@
 const toggleBtn = document.getElementById('toggleTheme');
 const body = document.body;
 
-// Thème : appliquer depuis localStorage
-window.addEventListener('DOMContentLoaded', () => {
+// Appliquer thème dès le chargement
+(function applyInitialTheme() {
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark');
-        toggleBtn.textContent = '☀️';
-    } else {
-        body.classList.remove('dark');
+    if (savedTheme === 'light') {
+        body.classList.add('light-theme');
         toggleBtn.textContent = '🌙';
+        toggleBtn.setAttribute('aria-pressed', 'false');
+    } else {
+        toggleBtn.textContent = '☀️';
+        toggleBtn.setAttribute('aria-pressed', 'true');
     }
-});
+})();
 
-// Basculer thème (sombre ↔ clair)
+// Basculer thème
 toggleBtn.addEventListener('click', () => {
-    body.classList.toggle('dark');
-    const isDark = body.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    toggleBtn.textContent = isDark ? '☀️' : '🌙';
+    const isLight = body.classList.toggle('light-theme');
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    toggleBtn.textContent = isLight ? '🌙' : '☀️';
+    toggleBtn.setAttribute('aria-pressed', isLight ? 'false' : 'true');
 });
 
-// Loader : supprimer après chargement
+// Loader
 window.addEventListener('load', () => {
     const loader = document.getElementById('loader');
+    loader.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     loader.style.opacity = '0';
-    setTimeout(() => {
-        loader.style.display = 'none';
-    }, 500);
+    loader.style.transform = 'translateY(-10px)';
+    setTimeout(() => loader.remove(), 600);
 });
+
+// Animation au scroll
+const fadeEls = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.2 });
+
+fadeEls.forEach(el => observer.observe(el));

@@ -6,19 +6,67 @@
     <title>PUFF :: Menthe</title>
     <link rel="stylesheet" href="css/index.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        /* Améliorations visuelles supplémentaires */
+        .description {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+            padding: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .description img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .description img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .price {
+            color: var(--link);
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .price:hover {
+            color: #2ecc71;
+        }
+
+        a.button-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: var(--link);
+            color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+        a.button-link:hover {
+            background-color: #2ecc71;
+            transform: translateY(-3px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <header id="headerPrincipal">
         <div class="container">
             <h1 class="logo">PUFF</h1>
-            <button id="toggleTheme">🌙</button>
+            <button id="toggleTheme" title="Changer le thème">🌙</button>
         </div>
     </header>
 
     <main>
         <section class="description">
             <h2>Menthe</h2>
-            <img src="img/base.jpg" alt="PUFF Menthe" style="max-width: 300px; border-radius: 10px; margin-bottom: 20px;">
+            <img src="img/base.jpg" alt="PUFF Menthe">
             <p>
                 La PUFF <strong>Menthe</strong> est synonyme de fraîcheur et de vivacité. 
                 <br><br>
@@ -27,9 +75,9 @@
                 Édition limitée – seulement 100 unités.
             </p>
 
-            <p class="price" style="font-size: 1.5rem; margin-top: 20px;">💸 Prix : <strong>20$</strong></p>
+            <p class="price">💸 Prix : <strong>20$</strong></p>
 
-            <a href="index.html" style="display: inline-block; margin-top: 30px; padding: 10px 20px; background-color: var(--link); color: #fff; border-radius: 5px;">Retour à l'accueil</a>
+            <a href="index.html" class="button-link">⬅ Retour à l'accueil</a>
         </section>
     </main>
 

@@ -1,28 +1,28 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <title>PUFF :: Accueil</title>
+  <title>PUFF</title>
   <link rel="stylesheet" href="css/index.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 </head>
-
 <body>
+  <!-- Loader -->
   <div id="loader" role="alert" aria-live="assertive">
     <div class="spinner"></div>
     <p>Chargement...</p>
   </div>
 
+  <!-- Header -->
   <header id="headerPrincipal" role="banner">
     <div class="container">
       <h1 class="logo">PUFF</h1>
-      <button id="toggleTheme" aria-label="Changer le thème">🌙</button>
+      <button id="toggleTheme" aria-label="Changer le thème" aria-pressed="true">☀️</button>
     </div>
   </header>
 
+  <!-- Main content -->
   <main role="main">
     <section class="description fade-in">
       <h2>Bienvenue sur la plateforme de vente de PUFF</h2>
@@ -30,7 +30,7 @@
         PUFF est une plateforme en ligne dédiée à titre informatif.<br /><br />
         Les 4 goûts sont : <strong>Watermelon</strong>, <strong>BlueBerry</strong>, <strong>Menthe</strong> et
         <strong>Fraise</strong>.
-        Elle est rechargable (autonomie en heure) 30 000 coups. Livraison gratuite à l'achat de 3 puff ou plus. Snap: @puff30k
+        Elle est rechargeable (autonomie en heure) 30 000 coups. Livraison gratuite à l'achat de 3 puff ou plus. Snap: @puff30k
       </p>
     </section>
 
@@ -38,42 +38,43 @@
       <h2>En vente en ce moment :</h2>
       <div class="grid-nfts">
         <article class="nft-item">
-          <img src="img/base.jpg" alt="Watermelon" />
+          <img src="img/base.jpg" alt="Watermelon" loading="lazy" />
           <a href="objet1.html"><h3>Watermelon</h3></a>
           <p class="price">20$</p>
           <p class="stock">Quantité restante : 12</p>
         </article>
 
         <article class="nft-item">
-          <img src="img/base.jpg" alt="BlueBerry" />
+          <img src="img/base.jpg" alt="BlueBerry" loading="lazy" />
           <a href="objet2.html"><h3>BlueBerry</h3></a>
           <p class="price">20$</p>
           <p class="stock">Quantité restante : 8</p>
         </article>
 
         <article class="nft-item">
-          <img src="img/base.jpg" alt="Menthe" />
+          <img src="img/base.jpg" alt="Menthe" loading="lazy" />
           <a href="objet3.html"><h3>Menthe</h3></a>
           <p class="price">20$</p>
           <p class="stock">Quantité restante : 15</p>
         </article>
 
         <article class="nft-item">
-          <img src="img/fraise.png" alt="Fraise" />
+          <img src="img/fraise.png" alt="Fraise" loading="lazy" />
           <a href="objet4.html"><h3>Fraise</h3></a>
           <p class="price">20$</p>
           <p class="stock">Quantité restante : 10</p>
         </article>
 
         <article class="nft-item coming-soon">
-            <img src="img/base.jpg" alt="Coming Soon" />
-            <h3>Coming Soon</h3>
-            <p class="price">Nouveau goût</p>
+          <img src="img/base.jpg" alt="Coming Soon" />
+          <h3>Coming Soon</h3>
+          <p class="price">Nouveau goût</p>
         </article>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer id="footerPrincipal" role="contentinfo">
     <p>© 2025 PUFF. Tous droits réservés.</p>
   </footer>

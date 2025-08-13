@@ -1,24 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>PUFF :: Fraise</title>
     <link rel="stylesheet" href="css/index.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* Animations et améliorations supplémentaires */
+        .description {
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        .description img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .description img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+        .price {
+            font-size: 1.6rem;
+            margin-top: 20px;
+            color: var(--link);
+            font-weight: bold;
+        }
+        .btn-return {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: var(--link);
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .btn-return:hover {
+            background-color: var(--link-hover, #0056b3);
+            transform: scale(1.05);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <header id="headerPrincipal">
         <div class="container">
             <h1 class="logo">PUFF</h1>
-            <button id="toggleTheme">🌙</button>
+            <button id="toggleTheme" aria-label="Changer le thème">🌙</button>
         </div>
     </header>
 
     <main>
         <section class="description">
             <h2>Fraise</h2>
-            <img src="img/base.jpg" alt="PUFF Fraise" style="max-width: 300px; border-radius: 10px; margin-bottom: 20px;">
+            <img src="img/base.jpg" alt="PUFF Fraise, douceur fruitée et romantique" style="max-width: 300px; border-radius: 10px; margin-bottom: 20px;">
             <p>
                 La PUFF <strong>Fraise</strong> dégage une douceur sucrée et une énergie romantique.
                 <br><br>
@@ -27,9 +66,9 @@
                 Disponible en édition très limitée !
             </p>
 
-            <p class="price" style="font-size: 1.5rem; margin-top: 20px;">💸 Prix : <strong>20$</strong></p>
+            <p class="price">💸 Prix : <strong>20$</strong></p>
 
-            <a href="index.html" style="display: inline-block; margin-top: 30px; padding: 10px 20px; background-color: var(--link); color: #fff; border-radius: 5px;">Retour à l'accueil</a>
+            <a href="index.html" class="btn-return">Retour à l'accueil</a>
         </section>
     </main>
 

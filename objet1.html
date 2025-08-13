@@ -6,30 +6,155 @@
     <title>PUFF :: Watermelon</title>
     <link rel="stylesheet" href="css/index.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Animation CSS rapide pour transitions de thème et loader -->
+    <style>
+        /* Empêche le flash de thème au chargement */
+        body {
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+        header {
+            background: var(--header-bg, #222);
+            padding: 15px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--text, #fff);
+        }
+
+        #toggleTheme {
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        #toggleTheme:hover {
+            transform: scale(1.2);
+        }
+
+        main {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .description img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .description img:hover {
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: var(--link, #ff4d4d);
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--link-hover, #e64444);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            font-size: 0.9rem;
+            background: var(--footer-bg, #111);
+            color: var(--footer-text, #aaa);
+            margin-top: 40px;
+        }
+
+        /* Loader style (compatible avec ton JS existant) */
+        #loader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--loader-bg, #111);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .loader-spinner {
+            border: 6px solid rgba(255,255,255,0.2);
+            border-top: 6px solid #fff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
     <header id="headerPrincipal">
         <div class="container">
             <h1 class="logo">PUFF</h1>
-            <button id="toggleTheme">🌙</button>
+            <button id="toggleTheme" aria-pressed="true">🌙</button>
         </div>
     </header>
 
     <main>
         <section class="description">
             <h2>Watermelon</h2>
-            <img src="img/base.jpg" alt="PUFF Watermelon" style="max-width: 300px; border-radius: 10px; margin-bottom: 20px;">
+            <img src="img/base.jpg" alt="PUFF Watermelon">
             <p>
                 La PUFF <strong>Watermelon</strong> est une pièce numérique rafraîchissante et vibrante de la collection PUFF. 
                 <br><br>
-                Inspiré par la fraîcheur de la pastèque, cette puff unique symbolise l’été, la détente et la légèreté. Elle est parfaite pour les collectionneurs qui aiment les saveurs fruitées et les visuels colorés.
+                Inspirée par la fraîcheur de la pastèque, cette puff unique symbolise l’été, la détente et la légèreté. 
+                Elle est parfaite pour les collectionneurs qui aiment les saveurs fruitées et les visuels colorés.
                 <br><br>
                 Édition limitée — seulement 100 exemplaires disponibles.
             </p>
 
-            <p class="price" style="font-size: 1.5rem; margin-top: 20px;">💸 Prix : <strong>20$</strong></p>
+            <p class="price">💸 Prix : <strong>20$</strong></p>
 
-            <a href="index.html" style="display: inline-block; margin-top: 30px; padding: 10px 20px; background-color: var(--link); color: #fff; border-radius: 5px;">Retour à l'accueil</a>
+            <a href="index.html" class="btn-primary">Retour à l'accueil</a>
         </section>
     </main>
 
