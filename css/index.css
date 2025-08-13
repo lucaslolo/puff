@@ -79,6 +79,7 @@ a:hover {
   letter-spacing: 2px;
   animation: glowPulse 2s infinite alternate, floatText 3s ease-in-out infinite;
   position: relative;
+  padding-top: 4px;
 }
 
 /* Glow + pulse effect */
