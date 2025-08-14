@@ -191,7 +191,7 @@ section {
   border: 1px solid #1aff33;
 }
 
-.nft-item.raspberry {
+.nft-item.strawberry {
   background: linear-gradient(135deg, #ff0033, #ff3366); /* Rouge framboise vif */
   border: 1px solid #cc001a;
 }
@@ -292,7 +292,7 @@ section {
     #ff3b3f 0%, #ff7f50 33%, 
     #4f2fff 33%, #7f66ff 66%, 
     #ff0033 66%, #ff3366 100%
-  ); /* Watermelon + Blueberry + Raspberry */
+  ); /* Watermelon + Blueberry + Strawberry */
   border: 2px solid #cc001a;
 }
 
@@ -304,7 +304,7 @@ section {
     #4f2fff 25%, #7f66ff 50%, 
     #ff0033 50%, #ff3366 75%, 
     #330066 75%, #660099 100%
-  ); /* Watermelon + Blueberry + Raspberry + Black Berry 
+  ); /* Watermelon + Blueberry + Strawberry + Black Berry 
   border: 2px solid #1a0033;
 }*/
 
