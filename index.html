@@ -114,17 +114,32 @@
       loader.style.opacity = "0";
       setTimeout(() => loader.style.display = "none", 500);
     });
-    fetch('stock.json')
-      .then(response => response.json())
-      .then(stock => {
-        document.getElementById('stock-watermelon').textContent = "Stock: " + stock.watermelon;
-        document.getElementById('stock-blueberry').textContent = "Stock: " + stock.blueberry;
-        document.getElementById('stock-blackberry').textContent = "Stock: " + stock.blackberry;
-        document.getElementById('stock-strawberry').textContent = "Stock: " + stock.strawberry;
-        document.getElementById('stock-triplemelon').textContent = "Stock: " + stock.triplemelon;
-      })
-      .catch(error => console.error("Erreur chargement stock.json :", error));
+// Lire le stock
+  fetch('/.netlify/functions/get-stock')
+    .then(response => response.json())
+    .then(stock => {
+      document.getElementById('stock-watermelon').textContent = "Stock: " + stock.watermelon;
+      document.getElementById('stock-blueberry').textContent = "Stock: " + stock.blueberry;
+      document.getElementById('stock-blackberry').textContent = "Stock: " + stock.blackberry;
+      document.getElementById('stock-strawberry').textContent = "Stock: " + stock.strawberry;
+      document.getElementById('stock-triplemelon').textContent = "Stock: " + stock.triplemelon;
+    })
+    .catch(error => console.error("Erreur chargement stock :", error));
+
+  // Exemple pour mettre à jour le stock (depuis un formulaire ou script)
+  function updateStock(newStock) {
+    fetch('/.netlify/functions/update-stock', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newStock)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(err => console.error("Erreur update stock :", err));
+  }
   </script>
+
+
 
 
 </body>
