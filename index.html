@@ -128,7 +128,7 @@
 
   // Exemple pour mettre à jour le stock (depuis un formulaire ou script)
   function updateStock(newStock) {
-    fetch('/.netlify/function/update-stock', {
+    fetch('/.netlify/functions/update-stock', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newStock)
