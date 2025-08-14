@@ -7,12 +7,16 @@ exports.handler = async (event) => {
   }
 
   const newStock = JSON.parse(event.body);
+
   const filePath = path.join(__dirname, '..', 'stock.json');
 
-  fs.writeFileSync(filePath, JSON.stringify(newStock, null, 2), 'utf-8');
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: 'Stock mis à jour avec succès !' })
-  };
+  try {
+    fs.writeFileSync(filePath, JSON.stringify(newStock, null, 2));
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: 'Stock updated successfully', newStock })
+    };
+  } catch (err) {
+    return { statusCode: 500, body: 'Error writing stock file' };
+  }
 };

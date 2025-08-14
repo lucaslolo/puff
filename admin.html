@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Stock</title>
+  <title>Admin Panel</title>
 </head>
 <body>
-  <h1>Admin Stock</h1>
+  <h1>Admin Panel - Update Stock</h1>
 
-  <form id="update-stock-form">
-    <label>Watermelon: <input type="number" id="watermelon" min="0"></label><br>
-    <label>Blueberry: <input type="number" id="blueberry" min="0"></label><br>
-    <label>Blackberry: <input type="number" id="blackberry" min="0"></label><br>
-    <label>Strawberry: <input type="number" id="strawberry" min="0"></label><br>
-    <label>Triplemelon: <input type="number" id="triplemelon" min="0"></label><br>
-    <button type="submit">Mettre à jour</button>
+  <form id="adminForm">
+    <label>Watermelon:</label>
+    <input type="number" id="watermelon" value="0"><br>
+
+    <label>Blueberry:</label>
+    <input type="number" id="blueberry" value="0"><br>
+
+    <label>Blackberry:</label>
+    <input type="number" id="blackberry" value="0"><br>
+
+    <label>Strawberry:</label>
+    <input type="number" id="strawberry" value="0"><br>
+
+    <label>Triple Melon:</label>
+    <input type="number" id="triplemelon" value="0"><br>
+
+    <button type="submit">Update Stock</button>
   </form>
 
   <script>
-    // Récupère le stock actuel
-    fetch('/.netlify/functions/get-stock')
-      .then(res => res.json())
-      .then(stock => {
-        document.getElementById('watermelon').value = stock.watermelon;
-        document.getElementById('blueberry').value = stock.blueberry;
-        document.getElementById('blackberry').value = stock.blackberry;
-        document.getElementById('strawberry').value = stock.strawberry;
-        document.getElementById('triplemelon').value = stock.triplemelon;
-      });
+    const form = document.getElementById('adminForm');
 
-    // Soumettre le formulaire
-    document.getElementById('update-stock-form').addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
 
       const newStock = {
@@ -46,7 +46,24 @@
         body: JSON.stringify(newStock)
       })
       .then(res => res.json())
-      .then(data => alert(data.message));
+      .then(data => {
+        alert("Stock updated successfully!");
+        console.log(data);
+      })
+      .catch(err => console.error(err));
+    });
+
+    // Optional: load current stock on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('/.netlify/functions/get-stock')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('watermelon').value = data.watermelon;
+          document.getElementById('blueberry').value = data.blueberry;
+          document.getElementById('blackberry').value = data.blackberry;
+          document.getElementById('strawberry').value = data.strawberry;
+          document.getElementById('triplemelon').value = data.triplemelon;
+        });
     });
   </script>
 </body>
