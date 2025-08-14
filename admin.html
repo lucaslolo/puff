@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Stock</title>
+</head>
+<body>
+  <h1>Admin Stock</h1>
+
+  <form id="update-stock-form">
+    <label>Watermelon: <input type="number" id="watermelon" min="0"></label><br>
+    <label>Blueberry: <input type="number" id="blueberry" min="0"></label><br>
+    <label>Blackberry: <input type="number" id="blackberry" min="0"></label><br>
+    <label>Strawberry: <input type="number" id="strawberry" min="0"></label><br>
+    <label>Triplemelon: <input type="number" id="triplemelon" min="0"></label><br>
+    <button type="submit">Mettre à jour</button>
+  </form>
+
+  <script>
+    // Récupère le stock actuel
+    fetch('/.netlify/functions/get-stock')
+      .then(res => res.json())
+      .then(stock => {
+        document.getElementById('watermelon').value = stock.watermelon;
+        document.getElementById('blueberry').value = stock.blueberry;
+        document.getElementById('blackberry').value = stock.blackberry;
+        document.getElementById('strawberry').value = stock.strawberry;
+        document.getElementById('triplemelon').value = stock.triplemelon;
+      });
+
+    // Soumettre le formulaire
+    document.getElementById('update-stock-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const newStock = {
+        watermelon: parseInt(document.getElementById('watermelon').value),
+        blueberry: parseInt(document.getElementById('blueberry').value),
+        blackberry: parseInt(document.getElementById('blackberry').value),
+        strawberry: parseInt(document.getElementById('strawberry').value),
+        triplemelon: parseInt(document.getElementById('triplemelon').value)
+      };
+
+      fetch('/.netlify/functions/update-stock', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newStock)
+      })
+      .then(res => res.json())
+      .then(data => alert(data.message));
+    });
+  </script>
+</body>
+</html>
