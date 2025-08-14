@@ -31,91 +31,76 @@
     </p>
   </section>
 
-
   <!-- NFT Grid Section -->
-      <section class="grid-nfts fade-in">
+  <section class="grid-nfts fade-in">
 
-          <div class="nft-item watermelon">
-              <img src="img/watermelon.png" alt="Watermelon">
-              <h3>WATERMELON</h3>
-              <h4><a href="objet1.html">Voir ici</a></h4>
-              <p class="stock">Stock: 10</p>
-          </div>
+      <div class="nft-item watermelon">
+          <img src="img/watermelon.png" alt="Watermelon">
+          <h3>WATERMELON</h3>
+          <h4><a href="objet1.html">Voir ici</a></h4>
+          <p class="stock" id="stock-watermelon">Stock: 0</p>
+      </div>
 
-          <div class="nft-item blueberry">
-              <img src="img/blueberry.png" alt="Blueberry">
-              <h3>BLUEBERRY</h3>
-              <h4><a href="objet2.html">Voir ici</a></h4>
-              <p class="stock">Stock: 10</p>
-          </div>
+      <div class="nft-item blueberry">
+          <img src="img/blueberry.png" alt="Blueberry">
+          <h3>BLUEBERRY</h3>
+          <h4><a href="objet2.html">Voir ici</a></h4>
+          <p class="stock" id="stock-blueberry">Stock: 0</p>
+      </div>
 
-          <div class="nft-item black-berry">
-              <img src="img/bblackberry..png" alt="Black Berry">
-              <h3>BLACK BERRY</h3>
-              <h4><a href="objet3.html">Voir ici</a></h4>
-              <p class="stock">Stock: 10</p>
-          </div>
+      <div class="nft-item black-berry">
+          <img src="img/blackberry.png" alt="Black Berry">
+          <h3>BLACK BERRY</h3>
+          <h4><a href="objet3.html">Voir ici</a></h4>
+          <p class="stock" id="stock-blackberry">Stock: 0</p>
+      </div>
 
-          <div class="nft-item raspberry">
-              <img src="img/strawberry.png" alt="Raspberry">
-              <h3>RASPBERRY</h3>
-              <h4><a href="objet4.html">Voir ici</a></h4>
-              <p class="stock">Stock: 10</p>
-          </div>
+      <div class="nft-item raspberry">
+          <img src="img/strawberry.png" alt="Raspberry">
+          <h3>STRAWBERRY</h3>
+          <h4><a href="objet4.html">Voir ici</a></h4>
+          <p class="stock" id="stock-strawberry">Stock: 0</p>
+      </div>
 
-          <div class="nft-item triple-melon">
-              <img src="img/melon.png" alt="Triple Melon">
-              <h3>TRIPLE MELON</h3>
-              <h4><a href="objet5.html">Voir ici</a></h4>
-              <p class="stock">Stock: 10</p>
-          </div>
+      <div class="nft-item triple-melon">
+          <img src="img/melon.png" alt="Triple Melon">
+          <h3>TRIPLE MELON</h3>
+          <h4><a href="objet5.html">Voir ici</a></h4>
+          <p class="stock" id="stock-triplemelon">Stock: 0</p>
+      </div>
 
-      </section>
-
+  </section>
 
   <!-- Price Section -->
-<section class="prix fade-in">
-    <h2>Nos Prix</h2>
-    <div class="prix-grid">
+  <section class="prix fade-in">
+      <h2>Nos Prix</h2>
+      <div class="prix-grid">
 
-    <div class="prix-item">
-        <h3>1 PUFF</h3>
-        <p>20€</p>
-    </div>
+      <div class="prix-item">
+          <h3>1 PUFF</h3>
+          <p>20€</p>
+      </div>
 
-  <!--<div class="prix-item best-seller">
-        <span class="badge">Meilleure vente</span>
-        <h3>2 PUFF</h3>
-        <p>35€</p>
-    </div>-->
+      <div class="prix-item best-seller">
+          <h3>3 PUFF</h3>
+          <p>55€</p>
+      </div>
 
-    <div class="prix-item best-seller">
-        <h3>3 PUFF</h3>
-        <p>55€</p>
-    </div>
+      <div class="prix-item best-deal">
+          <span class="badge">Meilleure offre</span>
+          <h3>5 PUFF</h3>
+          <p>85€</p>
+      </div>
 
-    <!--<div class="prix-item">
-        <h3>4 PUFF</h3>
-        <p>65€</p>
-    </div>-->
+      </div>
+  </section>
 
-    <div class="prix-item best-deal">
-        <span class="badge">Meilleure offre</span>
-        <h3>5 PUFF</h3>
-        <p>85€</p>
-    </div>
-
-    </div>
-</section>
-
-
-    <!-- Bouton Commander en bas -->
+  <!-- Bouton Commander en bas -->
   <div class="order-bottom">
     <a href="https://www.snapchat.com/add/chopetapuff30k" target="_blank" class="btn-order-bottom">
       Commander maintenant
     </a>
   </div>
-
 
   <!-- Footer -->
   <footer class="footer">
@@ -129,7 +114,18 @@
       loader.style.opacity = "0";
       setTimeout(() => loader.style.display = "none", 500);
     });
+    fetch('stock.json')
+      .then(response => response.json())
+      .then(stock => {
+        document.getElementById('stock-watermelon').textContent = "Stock: " + stock.watermelon;
+        document.getElementById('stock-blueberry').textContent = "Stock: " + stock.blueberry;
+        document.getElementById('stock-blackberry').textContent = "Stock: " + stock.blackberry;
+        document.getElementById('stock-strawberry').textContent = "Stock: " + stock.strawberry;
+        document.getElementById('stock-triplemelon').textContent = "Stock: " + stock.triplemelon;
+      })
+      .catch(error => console.error("Erreur chargement stock.json :", error));
   </script>
+
 
 </body>
 </html>
