@@ -115,7 +115,7 @@
       setTimeout(() => loader.style.display = "none", 500);
     });
 // Lire le stock
-  fetch('/.netlify/functions/get-stock')
+  fetch('stock.json')
     .then(response => response.json())
     .then(stock => {
       document.getElementById('stock-watermelon').textContent = "Stock: " + stock.watermelon;
@@ -125,18 +125,6 @@
       document.getElementById('stock-triplemelon').textContent = "Stock: " + stock.triplemelon;
     })
     .catch(error => console.error("Erreur chargement stock :", error));
-
-  // Exemple pour mettre à jour le stock (depuis un formulaire ou script)
-  function updateStock(newStock) {
-    fetch('/.netlify/functions/update-stock', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newStock)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(err => console.error("Erreur update stock :", err));
-  }
   </script>
 
 
