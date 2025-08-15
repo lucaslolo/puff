@@ -174,14 +174,7 @@ section {
   padding: 0 2rem; /* laisse de la place pour les flèches */
 }
 
-.nft-slider::-webkit-scrollbar {
-  height: 8px;
-}
 
-.nft-slider::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
-}
 
 .nft-item {
   flex: 0 0 auto;
