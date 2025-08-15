@@ -489,9 +489,6 @@ footer {
 
 /* Panier */
 .panier {
-    position: fixed; /* fixe l'élément à l'écran */
-    right: 20px;     /* 20px depuis la droite */
-    top: 20px;       /* 20px depuis le haut */
     width: 250px;
     background-color: #1a1a1a;
     padding: 20px;
