@@ -22,7 +22,7 @@
         <section class="description">
             <h2>Watermelon</h2>
             <img src="img/watermelon.png" alt="PUFF Watermelon">
-            <p class="stock" id="stock-watermelon">
+            <p class="stock">
                 La PUFF <strong>Watermelon</strong> est une pièce numérique rafraîchissante et vibrante de la collection PUFF. 
                 <br><br>
                 Inspirée par la fraîcheur de la <strong>pastèque</strong>, cette puff unique symbolise l’été, la détente et la légèreté. 
@@ -39,6 +39,20 @@
         <p>© 2025 PUFF. Tous droits réservés.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+          <script>
+    // Loader
+    window.addEventListener("load", function() {
+      const loader = document.getElementById("loader");
+      loader.style.opacity = "0";
+      setTimeout(() => loader.style.display = "none", 500);
+    });
+// Lire le stock
+  fetch('stock.json')
+    .then(response => response.json())
+    .then(stock => {
+      document.getElementById('stock-watermelon').textContent = stock.watermelon;
+    })
+    .catch(error => console.error("Erreur chargement stock :", error));
+  </script>
 </body>
 </html>

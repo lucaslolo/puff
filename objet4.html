@@ -21,13 +21,13 @@
         <section class="description">
             <h2>Strawberry</h2>
             <img src="img/strawberry.png" alt="PUFF Strawberry">
-            <p class="stock" id="stock-strawberry">
+            <p class="stock">
                 La PUFF <strong>strawberry</strong> est une pièce numérique rafraîchissante et vibrante de la collection PUFF. 
                 <br><br>
                 Inspirée par la fraîcheur de la <strong>fraise</strong>, cette puff unique symbolise l’été, la détente et la légèreté. 
                 Elle est parfaite pour les collectionneurs qui aiment les saveurs fruitées et les visuels colorés.
                 <br><br>
-                Édition limitée — seulement <strong id="stock-number-strawberry">0</strong> exemplaires disponibles.
+                Édition limitée — seulement <strong id="stock-strawberry">0</strong> exemplaires disponibles.
             </p>
 
             <a href="index.html" class="btn-primary">Retour à l'accueil</a>
@@ -38,6 +38,20 @@
         <p>© 2025 PUFF. Tous droits réservés.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+          <script>
+    // Loader
+    window.addEventListener("load", function() {
+      const loader = document.getElementById("loader");
+      loader.style.opacity = "0";
+      setTimeout(() => loader.style.display = "none", 500);
+    });
+// Lire le stock
+  fetch('stock.json')
+    .then(response => response.json())
+    .then(stock => {
+      document.getElementById('stock-strawberry').textContent = stock.strawberry;
+    })
+    .catch(error => console.error("Erreur chargement stock :", error));
+  </script>
 </body>
 </html>

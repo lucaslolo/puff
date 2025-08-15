@@ -10,8 +10,6 @@ window.addEventListener("load", () => {
     .then(stock => {
       // Exemple pour Watermelon
       document.getElementById('stock-number-watermelon').textContent = stock.watermelon;
-
-      // Si tu veux faire pareil pour les autres goûts
       document.getElementById('stock-number-blueberry').textContent = stock.blueberry;
       document.getElementById('stock-number-blackberry').textContent = stock.blackberry;
       document.getElementById('stock-number-strawberry').textContent = stock.strawberry;

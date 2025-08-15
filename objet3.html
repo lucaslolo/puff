@@ -20,14 +20,14 @@
     <main>
         <section class="description">
             <h2>Black Berry</h2>
-            <img src="img/bblackberry..png" alt="PUFF Black Berry">
-            <p class="stock" id="stock-blackberry">
+            <img src="img/blackberry.png" alt="PUFF Black Berry">
+            <p class="stock">
                 La PUFF <strong>Black Berry</strong> est une pièce numérique rafraîchissante et vibrante de la collection PUFF. 
                 <br><br>
                 Inspirée par la fraîcheur de la <strong>mûre</strong>, cette puff unique symbolise l’été, la détente et la légèreté. 
                 Elle est parfaite pour les collectionneurs qui aiment les saveurs fruitées et les visuels colorés.
                 <br><br>
-                Édition limitée — seulement <strong id="stock-number-blackberry">0</strong> exemplaires disponibles.
+                Édition limitée — seulement <strong id="stock-blackberry">0</strong> exemplaires disponibles.
             </p>
 
             <a href="index.html" class="btn-primary">Retour à l'accueil</a>
@@ -38,6 +38,20 @@
         <p>© 2025 PUFF. Tous droits réservés.</p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script>
+    // Loader
+        window.addEventListener("load", function() {
+        const loader = document.getElementById("loader");
+        loader.style.opacity = "0";
+        setTimeout(() => loader.style.display = "none", 500);
+        });
+    // Lire le stock
+    fetch('stock.json')
+        .then(response => response.json())
+        .then(stock => {
+        document.getElementById('stock-blackberry').textContent = stock.blackberry;
+        })
+        .catch(error => console.error("Erreur chargement stock :", error));
+    </script>
 </body>
 </html>
