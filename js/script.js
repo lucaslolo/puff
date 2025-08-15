@@ -5,6 +5,15 @@ window.addEventListener("load", function() {
   loader.style.opacity = "0";
   setTimeout(() => loader.style.display = "none", 500);
 });
+
+const slider = document.querySelector('.nft-slider');
+document.querySelector('.slide-left').addEventListener('click', () => {
+  slider.scrollBy({ left: -220, behavior: 'smooth' });
+});
+document.querySelector('.slide-right').addEventListener('click', () => {
+  slider.scrollBy({ left: 220, behavior: 'smooth' });
+});
+
 // Lire le stock
 fetch('../stock.json')
 .then(response => response.json())
