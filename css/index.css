@@ -274,120 +274,120 @@ section {
 /* ===========================
    Bloc Prix
 =========================== */
+/* Section Prix */
 .prix {
   margin: 50px auto;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
-  background: #1a1a1a; /* fond sombre */
-  border-radius: 15px;
+  background: #1a1a1a;
+  border-radius: 20px;
   color: #fff;
+  max-width: 1200px;
 }
 
 .prix h2 {
-  margin-bottom: 30px;
-  font-size: 2em;
-  color: #ff4d6d; /* accent rouge/rose */
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #ff4d6d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
+/* Grid des prix */
 .prix-grid {
   display: flex;
-  flex-wrap: wrap; /* permet aux items de passer à la ligne suivante */
-  gap: 10px;       /* espace entre les produits */
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: center;
 }
 
+/* Items */
 .prix-item {
-  position: relative;       /* nécessaire pour positionner le badge */
-  flex: 1 1 48%;
-  max-width: 48%;
+  position: relative;
+  flex: 1 1 250px;
+  max-width: 300px;
   background: linear-gradient(135deg, #333, #555);
-  border: 2px solid #ff4d6d;
-  border-radius: 15px;
-  padding: 20px;
+  border-radius: 20px;
+  padding: 30px 20px;
   box-sizing: border-box;
-  margin-bottom: 10px;
-  color: white;
+  color: #fff;
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 1 PUFF */
+/* Hover effect */
+.prix-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(255, 77, 109, 0.4), 0 0 20px rgba(255, 204, 0, 0.3);
+}
+
+/* Couleurs spécifiques */
 .prix-item:nth-child(1) {
-  background: linear-gradient(135deg, #ff3b3f 0%, #ff7f50 100%); /* Watermelon */
+  background: linear-gradient(135deg, #ff3b3f, #ff7f50);
   border: 2px solid #ff1a1a;
 }
 
-/* 2 PUFF 
 .prix-item:nth-child(2) {
-  background: linear-gradient(135deg, #ff3b3f 0%, #ff7f50 50%, #4f2fff 50%, #7f66ff 100%); /* Watermelon + Blueberry 
-  border: 2px solid #3300cc;
-}*/
-
-/* 3 PUFF */
-.prix-item:nth-child(2) {
-  background: linear-gradient(
-    135deg, 
-    #ff3b3f 0%, #ff7f50 33%, 
-    #4f2fff 33%, #7f66ff 66%, 
-    #ff0033 66%, #ff3366 100%
-  ); /* Watermelon + Blueberry + Strawberry */
+  background: linear-gradient(135deg, #ff3b3f 33%, #4f2fff 33%, #7f66ff 66%, #ff0033 66%, #ff3366 100%);
   border: 2px solid #cc001a;
 }
 
-/* 4 PUFF 
-.prix-item:nth-child(4) {
-  background: linear-gradient(
-    135deg, 
-    #ff3b3f 0%, #ff7f50 25%, 
-    #4f2fff 25%, #7f66ff 50%, 
-    #ff0033 50%, #ff3366 75%, 
-    #330066 75%, #660099 100%
-  ); /* Watermelon + Blueberry + Strawberry + Black Berry 
-  border: 2px solid #1a0033;
-}*/
-
-/* 5 PUFF - Best deal */
 .prix-item:nth-child(3) {
-  background: linear-gradient(
-    135deg, 
-    #ff3b3f 0%, #ff7f50 20%, 
-    #4f2fff 20%, #7f66ff 40%, 
-    #ff0033 40%, #ff3366 60%, 
-    #330066 60%, #660099 80%, 
-    #33ff66 80%, #66ff99 100%
-  ); /* All 5 colors */
+  background: linear-gradient(135deg, #ff3b3f 20%, #4f2fff 40%, #ff0033 60%, #330066 80%, #33ff66 100%);
   border: 2px solid #1aff33;
   font-weight: bold;
 }
 
-/* Badge commun */
+/* Badge */
 .badge {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  background: red;
-  color: white;
-  font-size: 0.75rem;
+  top: -12px;
+  right: -12px;
+  background: #ff4d6d;
+  color: #fff;
+  font-size: 0.8rem;
   font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  padding: 6px 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  text-transform: uppercase;
 }
 
+/* Titres et prix */
 .prix-item h3 {
-  font-size: 1.5em;
-  margin-bottom: 10px;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.prix-item s {
+  display: block;
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 5px;
 }
 
 .prix-item p {
-  font-size: 1.3em;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #ffcc00; /* couleur or pour le prix */
+  color: #ffcc00;
 }
 
-.prix-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(255, 77, 109, 0.5), 0 0 15px rgba(255, 204, 0, 0.4);
+/* Responsive */
+@media (max-width: 768px) {
+  .prix-item {
+    flex: 1 1 45%;
+    max-width: 45%;
+  }
 }
+
+@media (max-width: 480px) {
+  .prix-item {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
 
 
 /* Bouton en bas de page */
