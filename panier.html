@@ -5,37 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Panier Snap</title>
 <style>
-  body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 20px; }
-  .produit { display: flex; justify-content: space-between; margin-bottom: 10px; padding: 10px; background: #fff; border-radius: 8px; }
-  .panier { margin-top: 20px; padding: 10px; background: #ddd; border-radius: 8px; }
+  body { font-family: Arial, sans-serif; margin: 0; background: #f0f0f0; padding-bottom: 100px; }
+  .produit { display: flex; justify-content: space-between; align-items: center; margin: 10px; padding: 15px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
   button { padding: 8px 12px; background: #ff4d6d; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
   button:hover { background: #ff1a3f; }
+  .panier { position: fixed; bottom: 0; left: 0; width: 100%; background: #fff; border-top: 2px solid #ddd; padding: 10px; box-shadow: 0 -2px 5px rgba(0,0,0,0.1); }
+  .panier h3 { margin: 0 0 5px 0; font-size: 16px; }
+  .panier ul { margin: 0; padding: 0; list-style: none; max-height: 80px; overflow-y: auto; }
+  .panier li { font-size: 14px; margin-bottom: 3px; }
+  .panier p { margin: 5px 0; font-weight: bold; }
 </style>
 </head>
 <body>
 
-<h2>Nos Produits</h2>
+<h2 style="margin-left:10px;">Nos Produits</h2>
 
 <div class="produit">
   <span>Produit A - 10€</span>
-  <button onclick="ajouterPanier('Produit A', 10)">Ajouter au panier</button>
+  <button onclick="ajouterPanier('Produit A', 10)">Ajouter</button>
 </div>
 
 <div class="produit">
   <span>Produit B - 20€</span>
-  <button onclick="ajouterPanier('Produit B', 20)">Ajouter au panier</button>
+  <button onclick="ajouterPanier('Produit B', 20)">Ajouter</button>
 </div>
 
 <div class="produit">
   <span>Produit C - 15€</span>
-  <button onclick="ajouterPanier('Produit C', 15)">Ajouter au panier</button>
+  <button onclick="ajouterPanier('Produit C', 15)">Ajouter</button>
 </div>
 
 <div class="panier">
   <h3>Panier</h3>
   <ul id="panierListe"></ul>
   <p>Total: <span id="total">0</span>€</p>
-  <button onclick="commanderSnap()">Commander sur Snap</button>
+  <button style="width:100%;" onclick="commanderSnapEtOuvrirSnap()">Commander sur Snap</button>
 </div>
 
 <script>
@@ -59,20 +63,23 @@ function afficherPanier() {
   document.getElementById('total').textContent = total;
 }
 
-function commanderSnap() {
+function commanderSnapEtOuvrirSnap() {
   if (panier.length === 0) {
     alert("Ton panier est vide !");
     return;
   }
+
   let message = "Commande:\n";
   panier.forEach(item => {
     message += `- ${item.nom} : ${item.prix}€\n`;
   });
   message += `Total: ${document.getElementById('total').textContent}€`;
 
-  // Copie dans le presse-papier
   navigator.clipboard.writeText(message)
-    .then(() => alert("Commande copiée ! Ouvre Snapchat et colle le message."))
+    .then(() => {
+      alert("Commande copiée ! Ouvre Snapchat et colle le message.");
+      window.open("https://www.snapchat.com/add/chopetapuff30k", "_blank");
+    })
     .catch(() => alert("Impossible de copier la commande."));
 }
 </script>
