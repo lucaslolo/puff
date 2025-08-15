@@ -108,28 +108,7 @@
     &copy; 2025 PUFF. Tous droits réservés.
   </footer>
 
-  <script>
-    // Loader
-    window.addEventListener("load", function() {
-      const loader = document.getElementById("loader");
-      loader.style.opacity = "0";
-      setTimeout(() => loader.style.display = "none", 500);
-    });
-// Lire le stock
-  fetch('stock.json')
-    .then(response => response.json())
-    .then(stock => {
-      document.getElementById('stock-watermelon').textContent = "Stock: " + stock.watermelon;
-      document.getElementById('stock-blueberry').textContent = "Stock: " + stock.blueberry;
-      document.getElementById('stock-blackberry').textContent = "Stock: " + stock.blackberry;
-      document.getElementById('stock-strawberry').textContent = "Stock: " + stock.strawberry;
-      document.getElementById('stock-triplemelon').textContent = "Stock: " + stock.triplemelon;
-    })
-    .catch(error => console.error("Erreur chargement stock :", error));
-  </script>
-
-
-
+  <script src="js/script.js"></script>
 
 </body>
 </html>

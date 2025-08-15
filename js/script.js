@@ -1,20 +1,18 @@
-// ============================= Loader Fade =============================
-window.addEventListener("load", () => {
+
+// Loader
+window.addEventListener("load", function() {
   const loader = document.getElementById("loader");
-  loader.style.opacity = "0"; // fade out
-  setTimeout(() => loader.style.display = "none", 500); // cache après la transition
-
-
-  fetch('stock.json')
-    .then(response => response.json())
-    .then(stock => {
-      // Exemple pour Watermelon
-      document.getElementById('stock-number-watermelon').textContent = stock.watermelon;
-      document.getElementById('stock-number-blueberry').textContent = stock.blueberry;
-      document.getElementById('stock-number-blackberry').textContent = stock.blackberry;
-      document.getElementById('stock-number-strawberry').textContent = stock.strawberry;
-      document.getElementById('stock-number-triplemelon').textContent = stock.triplemelon;
-    })
-    .catch(err => console.error('Erreur de chargement du stock:', err));
-
+  loader.style.opacity = "0";
+  setTimeout(() => loader.style.display = "none", 500);
 });
+// Lire le stock
+fetch('../stock.json')
+.then(response => response.json())
+.then(stock => {
+  document.getElementById('stock-watermelon').textContent = stock.watermelon;
+  document.getElementById('stock-blueberry').textContent = stock.blueberry;
+  document.getElementById('stock-blackberry').textContent = stock.blackberry;
+  document.getElementById('stock-strawberry').textContent = stock.strawberry;
+  document.getElementById('stock-triplemelon').textContent = stock.triplemelon;
+})
+.catch(error => console.error("Erreur chargement stock :", error));
