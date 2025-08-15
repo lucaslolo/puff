@@ -1,7 +1,18 @@
 let panier = [];
 
 function ajouterPanier(nom, prix) {
-  panier.push({ nom, prix });
+  // Vérifie si le produit est déjà dans le panier
+  const produitExistant = panier.find(item => item.nom === nom);
+  if (produitExistant) {
+    produitExistant.quantite += 1; // Augmente la quantité
+  } else {
+    panier.push({ nom, prix, quantite: 1 });
+  }
+  afficherPanier();
+}
+
+function retirerPanier(index) {
+  panier.splice(index, 1);
   afficherPanier();
 }
 
@@ -9,14 +20,18 @@ function afficherPanier() {
   const liste = document.getElementById('panierListe');
   liste.innerHTML = '';
   let total = 0;
-  panier.forEach(item => {
+
+  panier.forEach((item, index) => {
     const li = document.createElement('li');
-    li.textContent = `${item.nom} - ${item.prix}€`;
+    li.innerHTML = `${item.nom} x${item.quantite} - ${item.prix}€ chacun 
+                    <button onclick="retirerPanier(${index})">Retirer</button>`;
     liste.appendChild(li);
-    total += item.prix;
+    total += item.prix * item.quantite;
   });
+
   document.getElementById('total').textContent = total;
 }
+
 
 function commanderSnapEtOuvrirSnap() {
   if (panier.length === 0) {
@@ -37,3 +52,4 @@ function commanderSnapEtOuvrirSnap() {
     })
     .catch(() => alert("Impossible de copier la commande."));
 }
+

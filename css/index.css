@@ -481,3 +481,66 @@ footer {
   background: linear-gradient(135deg, #ff0033, #ff3366);
   border: 2px solid #cc001a;
 }
+
+
+
+
+
+
+/* Panier */
+.panier {
+    position: fixed; /* fixe l'élément à l'écran */
+    right: 20px;     /* 20px depuis la droite */
+    top: 20px;       /* 20px depuis le haut */
+    width: 250px;
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    z-index: 999; /* s'assure qu'il soit au-dessus des autres éléments */
+}
+
+
+.panier h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #ff4500;
+}
+
+#panierListe {
+    list-style: none;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+#panierListe li {
+    margin-bottom: 8px;
+    padding: 5px;
+    border-bottom: 1px solid #333;
+}
+
+#total {
+    font-weight: bold;
+    color: #ff4500;
+}
+
+/* Bouton Commander */
+.panier button {
+    background-color: #32cd32;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+.panier button:hover {
+    background-color: #28a428;
+}

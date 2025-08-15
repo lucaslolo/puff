@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CHOPE TA PUFF 30K</title>
   <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/panier.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,6 +21,13 @@
     <div class="logo">CHOPE TA PUFF</div>
   </header>
 
+  <div class="panier">
+    <h3>Panier</h3>
+    <ul id="panierListe"></ul>
+    <p>Total: <span id="total">0</span>€</p>
+    <button onclick="commanderSnapEtOuvrirSnap()">Commander sur Snap</button>
+  </div>
+
   <!-- Description Section -->
   <section class="description fade-in">
     <h2>Bienvenue chez CHOPE TA PUFF 30K !</h2>
@@ -31,93 +39,61 @@
     </p>
   </section>
 
-<section class="grid-nfts">
-  <div class="slider-wrapper">
-    <button class="slide-left">◀</button>
-    <div class="nft-slider">
+  <!-- NFT Slider Section -->
+  <section class="grid-nfts">
+    <div class="slider-wrapper">
+      <button class="slide-left">◀</button>
+      <div class="nft-slider">
 
-      <div class="nft-item watermelon">
-          <img src="img/watermelon.png" alt="Watermelon">
-          <h3>WATERMELON</h3>
-          <div class="nft-footer">
-              <a href="objet1.html" class="see-link">Voir ici</a>
-              <p class="stock" id="stock-watermelon">Stock: 0</p>
-          </div>
+        <div class="nft-item watermelon">
+            <img src="img/watermelon.png" alt="Watermelon">
+            <h3>WATERMELON</h3>
+            <div class="nft-footer">
+                <a href="objet1.html" class="see-link">Voir ici</a>
+                <button onclick="ajouterPanier('Watermelon', 15)">Ajouter</button>
+            </div>
+        </div>
+
+        <div class="nft-item blueberry">
+            <img src="img/blueberry.png" alt="Blueberry">
+            <h3>BLUEBERRY</h3>
+            <div class="nft-footer">
+                <a href="objet2.html" class="see-link">Voir ici</a>
+                <button onclick="ajouterPanier('Blueberry', 15)">Ajouter</button>
+            </div>
+        </div>
+
+        <div class="nft-item black-berry">
+            <img src="img/blackberry.png" alt="Black Berry">
+            <h3>BLACK BERRY</h3>
+            <div class="nft-footer">
+                <a href="objet3.html" class="see-link">Voir ici</a>
+                <button onclick="ajouterPanier('Black Berry', 15)">Ajouter</button>
+            </div>
+        </div>
+
+        <div class="nft-item strawberry">
+            <img src="img/strawberry.png" alt="Strawberry">
+            <h3>STRAWBERRY</h3>
+            <div class="nft-footer">
+                <a href="objet4.html" class="see-link">Voir ici</a>
+                <button onclick="ajouterPanier('Strawberry', 15)">Ajouter</button>
+            </div>
+        </div>
+
+        <div class="nft-item triple-melon">
+            <img src="img/melon.png" alt="Triple Melon">
+            <h3>TRIPLE MELON</h3>
+            <div class="nft-footer">
+                <a href="objet5.html" class="see-link">Voir ici</a>
+                <button onclick="ajouterPanier('Triple Melon', 15)">Ajouter</button>
+            </div>
+        </div>
+
       </div>
-
-      <div class="nft-item blueberry">
-          <img src="img/blueberry.png" alt="Blueberry">
-          <h3>BLUEBERRY</h3>
-          <div class="nft-footer">
-              <a href="objet2.html" class="see-link">Voir ici</a>
-              <p class="stock" id="stock-blueberry">Stock: 0</p>
-          </div>
-      </div>
-
-      <div class="nft-item black-berry">
-          <img src="img/blackberry.png" alt="Black Berry">
-          <h3>BLACK BERRY</h3>
-          <div class="nft-footer">
-              <a href="objet3.html" class="see-link">Voir ici</a>
-              <p class="stock" id="stock-blackberry">Stock: 0</p>
-          </div>
-      </div>
-
-      <div class="nft-item strawberry">
-          <img src="img/strawberry.png" alt="Strawberry">
-          <h3>STRAWBERRY</h3>
-          <div class="nft-footer">
-              <a href="objet4.html" class="see-link">Voir ici</a>
-              <p class="stock" id="stock-strawberry">Stock: 0</p>
-          </div>
-      </div>
-
-      <div class="nft-item triple-melon">
-          <img src="img/melon.png" alt="Triple Melon">
-          <h3>TRIPLE MELON</h3>
-          <div class="nft-footer">
-              <a href="objet5.html" class="see-link">Voir ici</a>
-              <p class="stock" id="stock-triplemelon">Stock: 0</p>
-          </div>
-      </div>
-
+      <button class="slide-right">▶</button>
     </div>
-    <button class="slide-right">▶</button>
-  </div>
-</section>
-
-
-  <!-- Price Section -->
-  <section class="prix fade-in">
-      <h2>Nos Prix</h2>
-      <div class="prix-grid">
-
-      <div class="prix-item">
-          <h3>1 PUFF</h3>
-          <p>15€</p>
-      </div>
-
-      <div class="prix-item best-seller">
-          <h3>3 PUFF</h3>
-          <p>45€</p>
-      </div>
-
-      <div class="prix-item best-deal">
-          <span class="badge">Meilleure offre</span>
-          <h3>5 PUFF</h3>
-          <s>75€</s>
-          <p>70€</p>
-      </div>
-
-      </div>
   </section>
-
-  <!-- Bouton Commander en bas -->
-  <div class="order-bottom">
-    <a href="panier.html" target="_blank" class="btn-order-bottom">
-      panier
-    </a>
-  </div>
 
   <!-- Footer -->
   <footer class="footer">
@@ -125,8 +101,6 @@
   </footer>
 
   <script src="js/script.js"></script>
-
+  <script src="js/script2.js"></script>
 </body>
 </html>
-
-    <!--<a href="https://www.snapchat.com/add/chopetapuff30k" target="_blank" class="btn-order-bottom"></a>-->
