@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panier Snap</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f0f0f0; padding: 20px; }
+  .produit { display: flex; justify-content: space-between; margin-bottom: 10px; padding: 10px; background: #fff; border-radius: 8px; }
+  .panier { margin-top: 20px; padding: 10px; background: #ddd; border-radius: 8px; }
+  button { padding: 8px 12px; background: #ff4d6d; color: #fff; border: none; border-radius: 5px; cursor: pointer; }
+  button:hover { background: #ff1a3f; }
+</style>
+</head>
+<body>
+
+<h2>Nos Produits</h2>
+
+<div class="produit">
+  <span>Produit A - 10€</span>
+  <button onclick="ajouterPanier('Produit A', 10)">Ajouter au panier</button>
+</div>
+
+<div class="produit">
+  <span>Produit B - 20€</span>
+  <button onclick="ajouterPanier('Produit B', 20)">Ajouter au panier</button>
+</div>
+
+<div class="produit">
+  <span>Produit C - 15€</span>
+  <button onclick="ajouterPanier('Produit C', 15)">Ajouter au panier</button>
+</div>
+
+<div class="panier">
+  <h3>Panier</h3>
+  <ul id="panierListe"></ul>
+  <p>Total: <span id="total">0</span>€</p>
+  <button onclick="commanderSnap()">Commander sur Snap</button>
+</div>
+
+<script>
+let panier = [];
+
+function ajouterPanier(nom, prix) {
+  panier.push({ nom, prix });
+  afficherPanier();
+}
+
+function afficherPanier() {
+  const liste = document.getElementById('panierListe');
+  liste.innerHTML = '';
+  let total = 0;
+  panier.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = `${item.nom} - ${item.prix}€`;
+    liste.appendChild(li);
+    total += item.prix;
+  });
+  document.getElementById('total').textContent = total;
+}
+
+function commanderSnap() {
+  if (panier.length === 0) {
+    alert("Ton panier est vide !");
+    return;
+  }
+  let message = "Commande:\n";
+  panier.forEach(item => {
+    message += `- ${item.nom} : ${item.prix}€\n`;
+  });
+  message += `Total: ${document.getElementById('total').textContent}€`;
+
+  // Copie dans le presse-papier
+  navigator.clipboard.writeText(message)
+    .then(() => alert("Commande copiée ! Ouvre Snapchat et colle le message."))
+    .catch(() => alert("Impossible de copier la commande."));
+}
+</script>
+
+</body>
+</html>
