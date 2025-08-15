@@ -486,18 +486,16 @@ footer {
 
 
 
-
-/* Panier */
 .panier {
+    margin: 0 auto;           /* centre horizontalement */
     width: 250px;
     background-color: #1a1a1a;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    z-index: 999; /* s'assure qu'il soit au-dessus des autres éléments */
-    text-align: center;
+    border-radius: 10px 10px 0 0; /* coins arrondis en haut seulement */
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    position: relative;       /* position normale dans le flux */
 }
-
 
 .panier h3 {
     margin-top: 0;
