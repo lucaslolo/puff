@@ -160,8 +160,6 @@ section {
   padding: 0 2rem; /* laisse de la place pour les flèches */
 }
 
-
-
 .nft-item {
   flex: 0 0 auto;
   width: 200px;
@@ -170,6 +168,28 @@ section {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   text-align: center;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nft-footer {
+  display: flex;
+  justify-content: space-between; /* espace entre le lien et le stock */
+  align-items: center;
+  margin-top: auto; /* pousse le footer en bas de la carte */
+  padding-top: 10px;
+}
+
+.see-link {
+  margin: 0 auto; /* centré horizontalement */
+  text-decoration: none;
+  color: #000; /* adapte la couleur si besoin */
+  font-weight: bold;
+}
+
+.stock {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
 /* Flèches */
@@ -225,21 +245,18 @@ section {
 .nft-item img {
   width: 100%;
   border-radius: 8px;
-  transition: transform 0.3s ease;
 }
 
-/* Hover effect with glowing shadow */
-.nft-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(255, 77, 109, 0.6), 0 0 15px rgba(255, 255, 255, 0.2);
-}
-
-.nft-item img:hover {
-  transform: scale(1.05);
-}
 
 /* Text for better contrast */
-.nft-item h3, .nft-item h4 {
+.nft-item h3{
+  margin-top: 10px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.nft-item h4{
   margin-top: 10px;
   color: #ffffff;
   font-size: 1.2rem;
