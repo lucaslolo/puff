@@ -1,26 +1,23 @@
 const fs = require('fs');
 const path = require('path');
 
-exports.handler = async () => {
-  const filePath = path.join(__dirname, '..', 'stock.json');
+exports.handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
+    return { statusCode: 405, body: 'Method Not Allowed' };
+  }
 
   try {
-    if (!fs.existsSync(filePath)) {
-      fs.writeFileSync(filePath, JSON.stringify({
-        watermelon: 0,
-        blueberry: 0,
-        blackberry: 0,
-        strawberry: 0,
-        triplemelon: 0
-      }, null, 2));
-    }
+    const newStock = JSON.parse(event.body);
+    const filePath = path.join(__dirname, '..', '..', 'stock.json');
 
-    const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    fs.writeFileSync(filePath, JSON.stringify(newStock, null, 2));
+
     return {
       statusCode: 200,
-      body: JSON.stringify(data)
+      body: JSON.stringify({ message: 'Stock updated successfully', newStock })
     };
   } catch (err) {
-    return { statusCode: 500, body: 'Error reading stock file' };
+    console.error("Error writing stock.json:", err);
+    return { statusCode: 500, body: 'Error writing stock file' };
   }
 };

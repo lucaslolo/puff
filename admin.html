@@ -3,12 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Admin Panel</title>
-  <style>
-    .stock::before {
-      content: "Stock: ";
-      font-weight: bold;
-    }
-  </style>
 </head>
 <body>
   <h1>Admin Panel - Update Stock</h1>
@@ -32,13 +26,6 @@
     <button type="submit">Update Stock</button>
   </form>
 
-  <h2>Current Stock</h2>
-  <p class="stock" id="stock-watermelon">0</p>
-  <p class="stock" id="stock-blueberry">0</p>
-  <p class="stock" id="stock-blackberry">0</p>
-  <p class="stock" id="stock-strawberry">0</p>
-  <p class="stock" id="stock-triplemelon">0</p>
-
   <script>
     const form = document.getElementById('adminForm');
 
@@ -61,25 +48,14 @@
       .then(res => res.json())
       .then(data => {
         alert("Stock updated successfully!");
-
-        // Met à jour l'affichage du stock
-        document.getElementById('stock-watermelon').textContent = newStock.watermelon;
-        document.getElementById('stock-blueberry').textContent = newStock.blueberry;
-        document.getElementById('stock-blackberry').textContent = newStock.blackberry;
-        document.getElementById('stock-strawberry').textContent = newStock.strawberry;
-        document.getElementById('stock-triplemelon').textContent = newStock.triplemelon;
-
-        // Réinitialise les champs à 0
-        document.getElementById('watermelon').value = 0;
-        document.getElementById('blueberry').value = 0;
-        document.getElementById('blackberry').value = 0;
-        document.getElementById('strawberry').value = 0;
-        document.getElementById('triplemelon').value = 0;
+        console.log(data);
       })
-      .catch(err => console.error(err));
+      .catch(err => {
+        console.error("Update error:", err);
+        alert("Error updating stock");
+      });
     });
 
-    // Charger le stock actuel au chargement de la page
     window.addEventListener('DOMContentLoaded', () => {
       fetch('/.netlify/functions/get-stock')
         .then(res => res.json())
@@ -89,13 +65,8 @@
           document.getElementById('blackberry').value = data.blackberry;
           document.getElementById('strawberry').value = data.strawberry;
           document.getElementById('triplemelon').value = data.triplemelon;
-
-          document.getElementById('stock-watermelon').textContent = data.watermelon;
-          document.getElementById('stock-blueberry').textContent = data.blueberry;
-          document.getElementById('stock-blackberry').textContent = data.blackberry;
-          document.getElementById('stock-strawberry').textContent = data.strawberry;
-          document.getElementById('stock-triplemelon').textContent = data.triplemelon;
-        });
+        })
+        .catch(err => console.error("Load error:", err));
     });
   </script>
 </body>
