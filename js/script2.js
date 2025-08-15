@@ -1,10 +1,9 @@
 let panier = [];
 
 function ajouterPanier(nom, prix) {
-  // Vérifie si le produit est déjà dans le panier
   const produitExistant = panier.find(item => item.nom === nom);
   if (produitExistant) {
-    produitExistant.quantite += 1; // Augmente la quantité
+    produitExistant.quantite += 1;
   } else {
     panier.push({ nom, prix, quantite: 1 });
   }
@@ -17,21 +16,29 @@ function retirerPanier(index) {
 }
 
 function afficherPanier() {
+  const panierDiv = document.getElementById('panier');
   const liste = document.getElementById('panierListe');
   liste.innerHTML = '';
-  let total = 0;
+
+  if (panier.length > 0) {
+    panierDiv.style.display = 'block'; // montre le panier si il y a au moins un produit
+  } else {
+    panierDiv.style.display = 'none'; // cache le panier si vide
+  }
+
+  let totalGeneral = 0;
 
   panier.forEach((item, index) => {
+    const totalProduit = item.prix * item.quantite;
     const li = document.createElement('li');
-    li.innerHTML = `${item.nom} x${item.quantite} - ${item.prix}€ chacun 
+    li.innerHTML = `${item.quantite}x ${item.nom} - ${totalProduit}€ 
                     <button onclick="retirerPanier(${index})">Retirer</button>`;
     liste.appendChild(li);
-    total += item.prix * item.quantite;
+    totalGeneral += totalProduit;
   });
 
-  document.getElementById('total').textContent = total;
+  document.getElementById('total').textContent = totalGeneral;
 }
-
 
 function commanderSnapEtOuvrirSnap() {
   if (panier.length === 0) {
@@ -41,9 +48,12 @@ function commanderSnapEtOuvrirSnap() {
 
   let message = "Commande:\n";
   panier.forEach(item => {
-    message += `- ${item.nom} : ${item.prix}€\n`;
+    const totalProduit = item.prix * item.quantite;
+    message += `${item.quantite}x ${item.nom} ${totalProduit}€\n`;
   });
-  message += `Total: ${document.getElementById('total').textContent}€`;
+
+  const totalGeneral = panier.reduce((acc, item) => acc + item.prix * item.quantite, 0);
+  message += `Total: ${totalGeneral}€`;
 
   navigator.clipboard.writeText(message)
     .then(() => {
@@ -52,4 +62,3 @@ function commanderSnapEtOuvrirSnap() {
     })
     .catch(() => alert("Impossible de copier la commande."));
 }
-
