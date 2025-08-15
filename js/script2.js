@@ -17,28 +17,27 @@ function retirerPanier(index) {
 }
 
 function afficherPanier() {
-  const panierDiv = document.getElementById('panier');
+  const panierDiv = document.querySelector('.panier');
   const liste = document.getElementById('panierListe');
   liste.innerHTML = '';
+  let total = 0;
 
-  if (panier.length > 0) {
-    panierDiv.style.display = 'block'; // Montre le panier si il y a au moins un produit
+  if (panier.length === 0) {
+    panierDiv.style.display = 'none'; // cache le panier si vide
+    return;
   } else {
-    panierDiv.style.display = 'none'; // Cache le panier si vide
+    panierDiv.style.display = 'block'; // affiche le panier s'il y a au moins un produit
   }
 
-  let totalGeneral = 0;
-
   panier.forEach((item, index) => {
-    const totalProduit = item.prix * item.quantite;
     const li = document.createElement('li');
-    li.innerHTML = `${item.quantite}x ${item.nom} - ${totalProduit}€ 
+    li.innerHTML = `${item.nom} x${item.quantite} - ${item.prix * item.quantite}€ 
                     <button onclick="retirerPanier(${index})">Retirer</button>`;
     liste.appendChild(li);
-    totalGeneral += totalProduit;
+    total += item.prix * item.quantite;
   });
 
-  document.getElementById('total').textContent = totalGeneral;
+  document.getElementById('total').textContent = total;
 }
 
 function commanderSnapEtOuvrirSnap() {
@@ -49,12 +48,9 @@ function commanderSnapEtOuvrirSnap() {
 
   let message = "Commande:\n";
   panier.forEach(item => {
-    const totalProduit = item.prix * item.quantite;
-    message += `${item.quantite}x ${item.nom} ${totalProduit}€\n`;
+    message += `- ${item.nom} x${item.quantite} : ${item.prix * item.quantite}€\n`;
   });
-
-  const totalGeneral = panier.reduce((acc, item) => acc + item.prix * item.quantite, 0);
-  message += `Total: ${totalGeneral}€`;
+  message += `Total: ${document.getElementById('total').textContent}€`;
 
   navigator.clipboard.writeText(message)
     .then(() => {
@@ -63,4 +59,3 @@ function commanderSnapEtOuvrirSnap() {
     })
     .catch(() => alert("Impossible de copier la commande."));
 }
-
