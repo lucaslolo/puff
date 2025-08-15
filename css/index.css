@@ -384,18 +384,18 @@ section {
 /* Grid des prix responsive pour mobile */
 @media (max-width: 480px) {
   .prix-grid {
-    flex-wrap: nowrap;           /* plus de retour à la ligne */
-    overflow-x: auto;            /* permet le scroll horizontal */
-    -webkit-overflow-scrolling: touch; /* scroll fluide sur iOS */
+    display: flex;
+    flex-wrap: nowrap;           /* empêche le retour à la ligne */
+    overflow-x: auto;            /* scroll horizontal */
+    -webkit-overflow-scrolling: touch;
     gap: 15px;
-    padding-bottom: 10px;        /* espace pour le scroll */
+    padding-bottom: 10px;
   }
 
   .prix-item {
-    flex: 0 0 auto;             /* largeur fixe pour que ça ne se contracte pas */
-    width: 250px;               /* ou une taille adaptée à ton design */
-    max-width: none;
-    margin-bottom: 0;           /* plus de marge verticale */
+    flex: 0 0 auto;             /* largeur fixe */
+    width: 250px;               /* adapte selon ton design */
+    margin-bottom: 0;           /* supprime la marge verticale */
   }
 }
 
