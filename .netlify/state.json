@@ -1,0 +1,20 @@
+{
+	"geolocation": {
+		"data": {
+			"city": "Liège",
+			"country": {
+				"code": "BE",
+				"name": "Belgium"
+			},
+			"subdivision": {
+				"code": "WAL",
+				"name": "Wallonia"
+			},
+			"timezone": "Europe/Brussels",
+			"latitude": 50.6337,
+			"longitude": 5.5675,
+			"postalCode": "4000"
+		},
+		"timestamp": 1755272129875
+	}
+}
