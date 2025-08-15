@@ -394,7 +394,7 @@ section {
 
   .prix-item {
     flex: 0 0 auto;             /* largeur fixe */
-    width: 250px;               /* adapte selon ton design */
+    width: 150px;               /* adapte selon ton design */
     margin-bottom: 0;           /* supprime la marge verticale */
   }
 }
